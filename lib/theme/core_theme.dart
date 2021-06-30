@@ -12,7 +12,7 @@ part 'core_text_theme.dart';
 
 part 'utils.dart';
 
-abstract class CoreTheme {
+class CoreTheme {
   static late final ThemeColors _themeColorsLight;
   static late final ThemeColors _themeColorsDark;
 
@@ -24,19 +24,19 @@ abstract class CoreTheme {
   //region Cupertino
   static CupertinoThemeData cupertinoThemeDataOf(BuildContext context) {
     if (Theme.of(context).brightness == Brightness.light) {
-      return _cupertinoThemeLight;
+      return cupertinoThemeLight;
     }
-    return _cupertinoThemeDark;
+    return cupertinoThemeDark;
   }
 
-  static final CupertinoThemeData _cupertinoThemeLight = CupertinoThemeData(
+  static final CupertinoThemeData cupertinoThemeLight = CupertinoThemeData(
       textTheme: CupertinoTextThemeData(
         dateTimePickerTextStyle: ThemeData.dark().textTheme.headline6,
         pickerTextStyle: ThemeData.dark().textTheme.headline6,
       ),
       brightness: Brightness.light);
 
-  static final CupertinoThemeData _cupertinoThemeDark = CupertinoThemeData(
+  static final CupertinoThemeData cupertinoThemeDark = CupertinoThemeData(
       textTheme: CupertinoTextThemeData(
         dateTimePickerTextStyle: ThemeData.dark().textTheme.headline6,
         pickerTextStyle: ThemeData.dark().textTheme.headline6,
@@ -182,7 +182,7 @@ abstract class CoreTheme {
         deleteIconColor: _themeColorsLight.primary,
         labelStyle: ThemeData.dark().textTheme.chips),
     iconTheme: ThemeData.dark().iconTheme.copyWith(color: _themeColorsLight.textColor),
-    cupertinoOverrideTheme: _cupertinoThemeLight,
+    cupertinoOverrideTheme: cupertinoThemeLight,
   );
 
   static final ThemeData dark = ThemeData(
@@ -322,6 +322,6 @@ abstract class CoreTheme {
         deleteIconColor: _themeColorsDark.primary,
         labelStyle: ThemeData.dark().textTheme.chips),
     iconTheme: ThemeData.dark().iconTheme.copyWith(color: _themeColorsDark.textColor),
-    cupertinoOverrideTheme: _cupertinoThemeDark,
+    cupertinoOverrideTheme: cupertinoThemeDark,
   );
 }
