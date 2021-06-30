@@ -116,7 +116,7 @@ class FilePickerActionSheet {
         final result = await showOkCancelAlertDialog(
           context: context,
           title: CoreUIKit.filePickerPermissionTitle,
-          message: CoreUIKit.accessDeniedMessageByCode(e.code),
+          message: CoreUIKit.filePickerPermissionMessageByCode(e.code),
           okLabel: CoreUIKit.okButtonText,
           cancelLabel: CoreUIKit.cancelButtonText,
         );
