@@ -35,7 +35,7 @@ export 'buttons/context_menu_icon_button.dart';
 class CoreUIKit {
   static late final String filePickerPermissionTitle;
   static late final String Function(String) filePickerPermissionMessageByCode;
-  static late final String okButtonText;
+  static late final String filePickerPermissionOkButtonText;
   static late final String cancelButtonText;
   static late final String selectListTitle;
   static late final String addNewItemLabel;
@@ -47,7 +47,7 @@ class CoreUIKit {
     ThemeColors? themeColorsDark,
     String filePickerPermissionTitle = '',
     String Function(String)? filePickerPermissionMessageByCode,
-    String okButtonText = '',
+    String filePickerPermissionOkButtonText = '',
     String cancelButtonText = '',
     String selectListTitle = '',
     String addNewItemLabel = '',
@@ -60,7 +60,7 @@ class CoreUIKit {
     );
     CoreUIKit.filePickerPermissionTitle = filePickerPermissionTitle;
     CoreUIKit.filePickerPermissionMessageByCode = filePickerPermissionMessageByCode ?? (_) => '';
-    CoreUIKit.okButtonText = okButtonText;
+    CoreUIKit.filePickerPermissionOkButtonText = filePickerPermissionOkButtonText;
     CoreUIKit.cancelButtonText = cancelButtonText;
     CoreUIKit.selectListTitle = selectListTitle;
     CoreUIKit.addNewItemLabel = addNewItemLabel;

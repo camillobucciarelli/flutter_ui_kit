@@ -117,7 +117,7 @@ class FilePickerActionSheet {
           context: context,
           title: CoreUIKit.filePickerPermissionTitle,
           message: CoreUIKit.filePickerPermissionMessageByCode(e.code),
-          okLabel: CoreUIKit.okButtonText,
+          okLabel: CoreUIKit.filePickerPermissionOkButtonText,
           cancelLabel: CoreUIKit.cancelButtonText,
         );
         switch (result) {
