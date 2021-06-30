@@ -47,13 +47,13 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
 
   @override
   void initState() {
-    widget.scrollController?.addListener(() => _scrollListener());
+    widget.scrollController?.addListener(_scrollListener);
     super.initState();
   }
 
   @override
   void dispose() {
-    widget.scrollController?.removeListener(() => _scrollListener());
+    widget.scrollController?.removeListener(_scrollListener);
     super.dispose();
   }
 
