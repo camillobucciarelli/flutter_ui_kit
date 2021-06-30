@@ -1,0 +1,46 @@
+name: flutter_core_ui_kit
+description: Another flutter ui kit
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.4 <3.0.0"
+  flutter: ">=2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Graphics packages
+  cached_network_image: 3.0.0
+  adaptive_dialog: ^1.0.1
+  shimmer: ^2.0.0
+  app_settings: ^4.1.1 # only mobile
+
+  # file manager
+  image_picker: ^0.8.1+2
+  file_picker: ^3.0.3
+  crop_your_image: ^0.5.3
+  path_provider: ^2.0.2 # only mobile
+
+  internet_connection_checker: ^0.0.1+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  pedantic: ^1.11.1
+
+flutter:
+  fonts:
+    - family: ProximaNova
+      fonts:
+        - asset: assets/fonts/Proxima_Nova_Black.otf
+          weight: 900
+        - asset: assets/fonts/Proxima_Nova_Bold.otf
+          weight: 600
+        - asset: assets/fonts/Proxima_Nova_Regular.otf
+          weight: 400
+        - asset: assets/fonts/Proxima_Nova_Light.otf
+          weight: 200
+        - asset: assets/fonts/Proxima_Nova_Thin.otf
+          weight: 100
