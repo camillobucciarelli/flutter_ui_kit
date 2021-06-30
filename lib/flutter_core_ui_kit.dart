@@ -40,7 +40,7 @@ class CoreUIKit {
   static late final String selectListTitle;
   static late final String addNewItemLabel;
   static late final String connectionWarningMessage;
-  static late final VoidCallback genericBackAction;
+  static late final OnBack genericBackAction;
 
   static void init({
     ThemeColors? themeColorsLight,
@@ -52,7 +52,7 @@ class CoreUIKit {
     String selectListTitle = '',
     String addNewItemLabel = '',
     String connectionWarningMessage = '',
-    VoidCallback? genericBackAction,
+    OnBack? genericBackAction,
   }) {
     CoreTheme.init(
       themeColorsLight ?? ThemeColorsLight.instance,
@@ -65,6 +65,10 @@ class CoreUIKit {
     CoreUIKit.selectListTitle = selectListTitle;
     CoreUIKit.addNewItemLabel = addNewItemLabel;
     CoreUIKit.connectionWarningMessage = connectionWarningMessage;
-    CoreUIKit.genericBackAction = genericBackAction ?? (){};
+    CoreUIKit.genericBackAction = genericBackAction ?? _back;
   }
+
+  static void _back<T extends Object?>(BuildContext context, T? result){}
 }
+
+typedef OnBack = void Function<T extends Object?>(BuildContext context, T? result);

@@ -33,7 +33,7 @@ class CustomizedAppBar extends StatefulWidget implements PreferredSizeWidget {
     if (canPop) {
       return Button.icon(
         icon: useCloseButton ? Icons.close_rounded : Icons.arrow_back_ios_rounded,
-        onPressed: onPressed ?? CoreUIKit.genericBackAction,
+        onPressed: onPressed ?? () => CoreUIKit.genericBackAction(context, result),
       );
     }
   }
