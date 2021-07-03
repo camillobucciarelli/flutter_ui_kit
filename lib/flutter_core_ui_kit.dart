@@ -31,6 +31,7 @@ export 'file/crop_image.dart';
 export 'file/file_picker_action_sheet.dart';
 export 'buttons/button.dart';
 export 'buttons/context_menu_icon_button.dart';
+export 'form_fields/reactive_forms_fields/reactive_alphanumeric_field.dart';
 
 class CoreUIKit {
   static late final String filePickerPermissionTitle;
