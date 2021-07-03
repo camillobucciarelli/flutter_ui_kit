@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 part 'core_colors.dart';
@@ -54,15 +53,15 @@ class CoreTheme {
     highlightColor: Colors.transparent,
     accentColorBrightness: Brightness.light,
     buttonColor: _themeColorsLight.accent,
-    accentTextTheme: ThemeData.dark().textTheme,
+    accentTextTheme: ThemeData.light().textTheme,
     //region Input fields
-    inputDecorationTheme: ThemeData.dark().inputDecorationTheme.copyWith(
+    inputDecorationTheme: ThemeData.light().inputDecorationTheme.copyWith(
           filled: true,
           alignLabelWithHint: true,
-          counterStyle: ThemeData.dark().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
-          labelStyle: ThemeData.dark().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
-          hintStyle: ThemeData.dark().textTheme.textFieldHint?.apply(color: _themeColorsLight.textColorLighter),
-          errorStyle: ThemeData.dark().textTheme.textFieldError?.apply(color: CoreColors.red),
+          counterStyle: ThemeData.light().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
+          labelStyle: ThemeData.light().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
+          hintStyle: ThemeData.light().textTheme.textFieldHint?.apply(color: _themeColorsLight.textColorLighter),
+          errorStyle: ThemeData.light().textTheme.textFieldError?.apply(color: CoreColors.red),
           fillColor: Colors.transparent,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: _themeColorsLight.primary),
@@ -85,7 +84,7 @@ class CoreTheme {
             borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
           ),
         ),
-    textSelectionTheme: ThemeData.dark().textSelectionTheme.copyWith(
+    textSelectionTheme: ThemeData.light().textSelectionTheme.copyWith(
           cursorColor: _themeColorsLight.accent,
           selectionColor: _themeColorsLight.accent.withOpacity(.4),
           selectionHandleColor: _themeColorsLight.accent.withOpacity(.4),
@@ -96,7 +95,7 @@ class CoreTheme {
     focusColor: _themeColorsLight.accent,
     fontFamily: _fontFamily,
     //region App bar
-    appBarTheme: ThemeData.dark().appBarTheme.copyWith(
+    appBarTheme: ThemeData.light().appBarTheme.copyWith(
           backgroundColor: _themeColorsLight.background.withOpacity(.7),
           elevation: 0,
           centerTitle: true,
@@ -105,8 +104,8 @@ class CoreTheme {
         ),
     //endregion
     //region Text theme
-    textTheme: ThemeData.dark().textTheme.copyWith(
-          bodyText2: ThemeData.dark().textTheme.bodyText2?.copyWith(
+    textTheme: ThemeData.light().textTheme.copyWith(
+          bodyText2: ThemeData.light().textTheme.bodyText2?.copyWith(
                 fontFamily: _fontFamily,
                 color: _themeColorsLight.textColor,
               ),
@@ -114,12 +113,12 @@ class CoreTheme {
     //endregion
     //region Tab bar
     tabBarTheme: TabBarTheme(
-      labelStyle: ThemeData.dark().tabBarTheme.labelStyle?.copyWith(
+      labelStyle: ThemeData.light().tabBarTheme.labelStyle?.copyWith(
             fontFamily: _fontFamily,
             fontWeight: FontWeight.w900,
             fontSize: 12.0,
           ),
-      unselectedLabelStyle: ThemeData.dark().tabBarTheme.labelStyle?.copyWith(
+      unselectedLabelStyle: ThemeData.light().tabBarTheme.labelStyle?.copyWith(
             fontFamily: _fontFamily,
             fontWeight: FontWeight.w900,
             fontSize: 12.0,
@@ -141,7 +140,7 @@ class CoreTheme {
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
         shadowColor: _themeColorsLight.primaryLight,
-        textStyle: ThemeData.dark().textTheme.buttonText,
+        textStyle: ThemeData.light().textTheme.buttonText,
         animationDuration: Durations.BUTTON_TAP,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
@@ -155,7 +154,7 @@ class CoreTheme {
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
         shadowColor: _themeColorsLight.primaryLight,
-        textStyle: ThemeData.dark().textTheme.buttonText,
+        textStyle: ThemeData.light().textTheme.buttonText,
         animationDuration: Durations.BUTTON_TAP,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
@@ -169,7 +168,7 @@ class CoreTheme {
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
         shadowColor: _themeColorsLight.primaryLight,
-        textStyle: ThemeData.dark().textTheme.buttonText,
+        textStyle: ThemeData.light().textTheme.buttonText,
         animationDuration: Durations.BUTTON_TAP,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: _themeColorsLight.primary, style: BorderStyle.solid),
@@ -178,11 +177,11 @@ class CoreTheme {
       ),
     ),
     //endregion
-    chipTheme: ThemeData.dark().chipTheme.copyWith(
+    chipTheme: ThemeData.light().chipTheme.copyWith(
         backgroundColor: _themeColorsLight.primaryLight,
         deleteIconColor: _themeColorsLight.primary,
-        labelStyle: ThemeData.dark().textTheme.chips),
-    iconTheme: ThemeData.dark().iconTheme.copyWith(color: _themeColorsLight.textColor),
+        labelStyle: ThemeData.light().textTheme.chips),
+    iconTheme: ThemeData.light().iconTheme.copyWith(color: _themeColorsLight.textColor),
     cupertinoOverrideTheme: cupertinoThemeLight,
   );
 
