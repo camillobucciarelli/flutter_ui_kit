@@ -43,8 +43,8 @@ class CoreUIKit {
   static late final OnBack genericBackAction;
 
   static void init({
-    ThemeColors? themeColorsLight,
-    ThemeColors? themeColorsDark,
+    required ThemeColors themeColorsLight,
+    required ThemeColors themeColorsDark,
     String filePickerPermissionTitle = '',
     String Function(String)? filePickerPermissionMessageByCode,
     String filePickerPermissionOkButtonText = '',
@@ -55,8 +55,8 @@ class CoreUIKit {
     OnBack? genericBackAction,
   }) {
     CoreTheme.init(
-      themeColorsLight ?? ThemeColorsLight.instance,
-      themeColorsDark ?? ThemeColorsDark.instance,
+      themeColorsLight,
+      themeColorsDark,
     );
     CoreUIKit.filePickerPermissionTitle = filePickerPermissionTitle;
     CoreUIKit.filePickerPermissionMessageByCode = filePickerPermissionMessageByCode ?? (_) => '';
