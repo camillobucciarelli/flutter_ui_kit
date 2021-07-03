@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_core_ui_kit/buttons/button.dart';
 import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
-import 'package:flutter_core_ui_kit/form_fields/select_form_field/select_form_field_item.dart';
-import 'package:flutter_core_ui_kit/form_fields/select_form_field/select_form_field_list_item.dart';
+import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_item.dart';
+import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_list_item.dart';
 import 'package:flutter_core_ui_kit/theme/core_theme.dart';
-
-import '../../customized_app_bar.dart';
-import '../../list_item.dart';
 
 class SelectFormFieldList<T> extends StatefulWidget {
   final List<SelectFormFieldItem<T>> items;

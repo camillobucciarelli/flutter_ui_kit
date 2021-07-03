@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
 import 'package:flutter_core_ui_kit/theme/core_theme.dart';
 
-import '../../adaptive_container.dart';
-import '../../list_item.dart';
 
 class SelectFormFieldListItem extends StatelessWidget {
   final bool selected;
