@@ -8,7 +8,7 @@ class DmyDateValidator extends Validator {
   @override
   Map<String, dynamic>? validate(AbstractControl<dynamic> control) {
     try {
-      final dateParts = control.value!.split(separator);
+      final List<int> dateParts = control.value!.split(separator).map(int.parse).toList();
       DateTime(dateParts[2], dateParts[1], dateParts[0]);
       return null;
     } catch (e) {
