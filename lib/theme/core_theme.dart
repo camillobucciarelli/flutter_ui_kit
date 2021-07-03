@@ -59,6 +59,7 @@ class CoreTheme {
     inputDecorationTheme: ThemeData.dark().inputDecorationTheme.copyWith(
           filled: true,
           alignLabelWithHint: true,
+          counterStyle: ThemeData.dark().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
           labelStyle: ThemeData.dark().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
           hintStyle: ThemeData.dark().textTheme.textFieldHint?.apply(color: _themeColorsLight.textColorLighter),
           errorStyle: ThemeData.dark().textTheme.textFieldError?.apply(color: CoreColors.red),
