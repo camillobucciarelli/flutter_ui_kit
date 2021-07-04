@@ -29,6 +29,7 @@ class ReactiveAlphanumericField<T> extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final bool showCursor;
   final Widget? trailingAction;
+  final VoidCallback? onSubmitted;
 
   const ReactiveAlphanumericField({
     Key? key,
@@ -39,6 +40,12 @@ class ReactiveAlphanumericField<T> extends StatefulWidget {
     this.trailingAction,
     this.textInputAction,
     this.inputFormatters,
+    this.formControl,
+    this.validationMessages,
+    this.valueAccessor,
+    this.showErrors,
+    this.formControlName,
+    this.onSubmitted,
     this.minLines = 1,
     this.maxLines = 1,
     this.enabled = true,
@@ -50,11 +57,6 @@ class ReactiveAlphanumericField<T> extends StatefulWidget {
     this.enableTrailingActions = true,
     this.enableInteractiveSelection = true,
     this.keyboardType = TextInputType.text,
-    this.formControl,
-    this.validationMessages,
-    this.valueAccessor,
-    this.showErrors,
-    this.formControlName,
   })  : assert((formControlName != null && formControl == null) ||
             (formControlName == null && formControl != null)),
         assert(obscureText == true && maxLines == 1 || obscureText == false),
@@ -159,6 +161,7 @@ class _ReactiveAlphanumericFieldState<T>
       readOnly: widget.readOnly,
       inputFormatters: widget.inputFormatters,
       showCursor: widget.showCursor,
+      onSubmitted: widget.onSubmitted,
       decoration: InputDecoration(
         labelText: widget.labelText,
         prefixIcon: _prefixIcon,
