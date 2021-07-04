@@ -135,7 +135,7 @@ extension _$ToastAppearance on ToastAppearance {
             ),
         ToastAppearance.info: (BuildContext context, String msg, String ctaLabel, VoidCallback? ctaAction) => Text(
               msg,
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.snackBar,
             ),
         ToastAppearance.cta: (BuildContext context, String msg, String ctaLabel, VoidCallback? ctaAction) => Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,7 +144,7 @@ extension _$ToastAppearance on ToastAppearance {
                 Expanded(
                   child: Text(
                     msg,
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.snackBar,
                   ),
                 ),
                 const SizedBox(width: Dimens.SPACING_XS),
@@ -152,7 +152,7 @@ extension _$ToastAppearance on ToastAppearance {
                   onPressed: ctaAction,
                   child: Text(
                     ctaLabel.toUpperCase(),
-                    style: Theme.of(context).textTheme.headline3,
+                    style: Theme.of(context).textTheme.snackBar,
                   ),
                 )
               ],
@@ -160,7 +160,7 @@ extension _$ToastAppearance on ToastAppearance {
       }[this] ??
       (BuildContext context, String msg, String ctaLabel, VoidCallback? ctaAction) => Text(
             msg,
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.snackBar,
           );
 }
 

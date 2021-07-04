@@ -30,15 +30,15 @@ class CoreTheme {
 
   static final CupertinoThemeData cupertinoThemeLight = CupertinoThemeData(
       textTheme: CupertinoTextThemeData(
-        dateTimePickerTextStyle: ThemeData.dark().textTheme.headline6,
-        pickerTextStyle: ThemeData.dark().textTheme.headline6,
+        dateTimePickerTextStyle: ThemeData.dark().textTheme.bodyText2,
+        pickerTextStyle: ThemeData.dark().textTheme.bodyText2,
       ),
       brightness: Brightness.light);
 
   static final CupertinoThemeData cupertinoThemeDark = CupertinoThemeData(
       textTheme: CupertinoTextThemeData(
-        dateTimePickerTextStyle: ThemeData.dark().textTheme.headline6,
-        pickerTextStyle: ThemeData.dark().textTheme.headline6,
+        dateTimePickerTextStyle: ThemeData.dark().textTheme.bodyText2,
+        pickerTextStyle: ThemeData.dark().textTheme.bodyText2,
       ),
       brightness: Brightness.dark);
 

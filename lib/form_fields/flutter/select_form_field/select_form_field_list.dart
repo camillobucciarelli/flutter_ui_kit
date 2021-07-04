@@ -89,7 +89,7 @@ class _SelectFormFieldListState<T> extends State<SelectFormFieldList<T>> {
             }),
         title: Text(
           CoreUIKit.addNewItemLabel,
-          style: Theme.of(context).textTheme.headline5?.apply(color: ThemeColors.of(context).textColor), //todo change text
+          style: Theme.of(context).textTheme.appBar?.apply(color: ThemeColors.of(context).textColor),
         ),
       ),
     );

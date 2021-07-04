@@ -21,7 +21,7 @@ class SelectFormFieldListItem extends StatelessWidget {
           child: ListItem(
             backgroundColor: selected ? ThemeColors.of(context).primary : null,
             onTap: () => onTap.call(),
-            title: Text(label, style: Theme.of(context).textTheme.bodyText1),
+            title: Text(label),
             trailing: selected ? const Icon(Icons.check) : null,
           ),
         ),

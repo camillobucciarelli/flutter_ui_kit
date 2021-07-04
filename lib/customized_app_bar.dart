@@ -84,7 +84,7 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
     if (widget.fadeHeight == 0) {
       return Text(
         widget.title,
-        style: Theme.of(context).textTheme.headline5,
+        style: Theme.of(context).textTheme.appBar,
       );
     }
 
@@ -93,7 +93,7 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
       opacity: _titleOpacity,
       child: Text(
         widget.title,
-        style: Theme.of(context).textTheme.headline5,
+        style: Theme.of(context).textTheme.appBar,
       ),
     );
   }

@@ -30,7 +30,7 @@ class ContextMenuButton<T> extends StatelessWidget {
           return actions
               .map((cma) => PopupMenuItem(
                     value: cma.key,
-                    child: Text(cma.label, style: Theme.of(context).textTheme.headline4),
+                    child: Text(cma.label),
                   ))
               .toList();
         },

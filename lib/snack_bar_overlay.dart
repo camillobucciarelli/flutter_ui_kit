@@ -122,7 +122,7 @@ class _SnackBarOverlayWidgetState extends State<_SnackBarOverlayWidget> with Sin
             color: widget.overlayTheme.background,
             child: Text(
               widget.msg,
-              style: Theme.of(context).textTheme.headline4?.apply(color: widget.overlayTheme.textColor),
+              style: Theme.of(context).textTheme.snackBar?.apply(color: widget.overlayTheme.textColor),
             ),
           ),
         ],
