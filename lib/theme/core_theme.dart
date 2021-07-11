@@ -107,6 +107,7 @@ class CoreTheme {
     textTheme: ThemeData.light().textTheme.copyWith(
           bodyText2: ThemeData.light().textTheme.bodyText2?.copyWith(
                 fontFamily: _fontFamily,
+                fontSize: 14.0,
                 color: _themeColorsLight.textColor,
               ),
         ),
