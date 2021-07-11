@@ -127,9 +127,9 @@ class CoreTheme {
       labelColor: CoreColors.lightBlue,
       unselectedLabelColor: _themeColorsLight.textColorLight,
       indicatorSize: TabBarIndicatorSize.tab,
-      indicator: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(Dimens.RADIUS_XS)),
-        color: _themeColorsLight.textColorLighter,
+      indicator: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_XS)),
+        color: Colors.white,
       ),
     ),
     //endregion
@@ -150,7 +150,7 @@ class CoreTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        onPrimary: _themeColorsLight.textColorLighter,
+        onPrimary: Colors.white,
         primary: _themeColorsLight.primary,
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
