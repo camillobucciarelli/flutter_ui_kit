@@ -92,7 +92,10 @@ class _ListItemState extends State<ListItem> {
   }
 
   void _onTap() async {
-    if (!widget.selectable) return;
+    if (!widget.selectable) {
+      widget.onTap?.call();
+      return;
+    }
     await Future.delayed(Durations.BUTTON_TAP);
     setState(_toggleFactor);
     widget.onTap?.call();
