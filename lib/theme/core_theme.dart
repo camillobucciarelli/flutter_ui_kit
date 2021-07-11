@@ -107,7 +107,7 @@ class CoreTheme {
     textTheme: ThemeData.light().textTheme.copyWith(
           bodyText2: ThemeData.light().textTheme.bodyText2?.copyWith(
                 fontFamily: _fontFamily,
-                fontSize: 14.0,
+                fontSize: 16.0,
                 color: _themeColorsLight.textColor,
               ),
         ),
@@ -117,19 +117,19 @@ class CoreTheme {
       labelStyle: ThemeData.light().tabBarTheme.labelStyle?.copyWith(
             fontFamily: _fontFamily,
             fontWeight: FontWeight.w900,
-            fontSize: 12.0,
+            fontSize: 16.0,
           ),
       unselectedLabelStyle: ThemeData.light().tabBarTheme.labelStyle?.copyWith(
             fontFamily: _fontFamily,
             fontWeight: FontWeight.w900,
-            fontSize: 12.0,
+            fontSize: 16.0,
           ),
       labelColor: CoreColors.lightBlue,
       unselectedLabelColor: _themeColorsLight.textColorLight,
       indicatorSize: TabBarIndicatorSize.tab,
-      indicator: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_XS)),
-        color: Colors.white,
+      indicator: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(Dimens.RADIUS_XS)),
+        color: _themeColorsLight.textColorLighter,
       ),
     ),
     //endregion
@@ -150,7 +150,7 @@ class CoreTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        onPrimary: Colors.white,
+        onPrimary: _themeColorsLight.textColorLighter,
         primary: _themeColorsLight.primary,
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
