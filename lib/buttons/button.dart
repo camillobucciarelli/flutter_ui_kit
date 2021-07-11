@@ -229,7 +229,7 @@ extension on _ButtonStyle {
         borderRadius:
             (Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected}) as RoundedRectangleBorder).borderRadius,
         border: Border.all(
-            color: Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.color ?? buttonColor ??
+            color: buttonColor ?? Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.color ??
                 ThemeColors.of(context).accent,
             style: Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.style ?? BorderStyle.solid,
             width: Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.width ?? 2.0),
