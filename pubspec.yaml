@@ -11,20 +11,20 @@ dependencies:
     sdk: flutter
 
   # Graphics packages
-  cached_network_image: ^3.0.0
-  adaptive_dialog: ^1.0.1
+  cached_network_image: ^3.1.0
+  adaptive_dialog: ^1.1.0
   shimmer: ^2.0.0
   app_settings: ^4.1.1 # only mobile
 
   # file manager
-  image_picker: ^0.8.1+3
+  image_picker: ^0.8.2
   file_picker: ^3.0.3
   crop_your_image: ^0.5.3
   path_provider: ^2.0.2 # only mobile
 
   internet_connection_checker: ^0.0.1+1
 
-  reactive_forms: ^10.4.1
+  reactive_forms: any
   loadmore: ^2.0.1
 
 dev_dependencies:

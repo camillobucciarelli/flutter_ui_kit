@@ -23,7 +23,6 @@ class UserAvatar extends StatelessWidget {
       alignment: Alignment.center,
       child: CachedNetworkImage(
         imageUrl: imageUrl,
-        imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
         imageBuilder: (context, imageProvider) => Container(
           width: size,
           height: size,
