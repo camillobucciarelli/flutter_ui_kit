@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
+import 'package:flutter_core_ui_kit/page_view/indicator_item.dart';
 
 class PageViewIndicator extends StatefulWidget {
   final double indicatorHeight;
@@ -54,15 +55,10 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
 
   Expanded _indicator(BuildContext context, int index) {
     return Expanded(
-      child: AnimatedContainer(
-        curve: Curves.easeInOutQuad,
-        duration: widget.animationDuration,
-        height: widget.indicatorHeight,
-        decoration: BoxDecoration(
-            color: (widget.single ? index == currentPage : index <= currentPage )
-                ? ThemeColors.of(context).primary
-                : ThemeColors.of(context).primaryLight,
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_S)),
+      child: IndicatorItem(
+        indicatorHeight: widget.indicatorHeight,
+        animationDuration: widget.animationDuration,
+        active: widget.single ? index == currentPage : index <= currentPage,
       ),
     );
   }
