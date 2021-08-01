@@ -7,13 +7,16 @@ class PageViewIndicator extends StatefulWidget {
   final Duration animationDuration;
   final int pagesCount;
   final PageController pageController;
+  final bool single;
 
-  const PageViewIndicator(
-      {required this.pageController,
-      required this.pagesCount,
-      this.indicatorHeight = Dimens.SPACING_XS,
-      this.indicatorSpacing = Dimens.SPACING_XXS,
-      this.animationDuration = Durations.BUTTON_TAP});
+  const PageViewIndicator({
+    required this.pageController,
+    required this.pagesCount,
+    this.indicatorHeight = Dimens.SPACING_XS,
+    this.indicatorSpacing = Dimens.SPACING_XXS,
+    this.animationDuration = Durations.BUTTON_TAP,
+    this.single = false,
+  });
 
   @override
   _PageViewIndicatorState createState() => _PageViewIndicatorState();
@@ -36,7 +39,9 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
   }
 
   void _listener() {
-    currentPage = widget.pageController.page?.round() ?? 0;
+    setState(() {
+      currentPage = widget.pageController.page?.round() ?? 0;
+    });
   }
 
   @override
@@ -54,7 +59,9 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
         duration: widget.animationDuration,
         height: widget.indicatorHeight,
         decoration: BoxDecoration(
-            color: index <= currentPage ? ThemeColors.of(context).primary : ThemeColors.of(context).primaryLight,
+            color: (widget.single ? index <= currentPage : index == currentPage)
+                ? ThemeColors.of(context).primary
+                : ThemeColors.of(context).primaryLight,
             borderRadius: BorderRadius.circular(Dimens.RADIUS_S)),
       ),
     );
