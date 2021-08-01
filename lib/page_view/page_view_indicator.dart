@@ -59,7 +59,7 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
         duration: widget.animationDuration,
         height: widget.indicatorHeight,
         decoration: BoxDecoration(
-            color: (widget.single ? index <= currentPage : index == currentPage)
+            color: (widget.single ? index == currentPage : index <= currentPage )
                 ? ThemeColors.of(context).primary
                 : ThemeColors.of(context).primaryLight,
             borderRadius: BorderRadius.circular(Dimens.RADIUS_S)),
