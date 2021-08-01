@@ -18,11 +18,11 @@ dependencies:
 
   # file manager
   image_picker: ^0.8.2
-  file_picker: ^3.0.3
+  file_picker: ^3.0.4
   crop_your_image: ^0.5.3
   path_provider: ^2.0.2 # only mobile
 
-  internet_connection_checker: ^0.0.1+1
+  internet_connection_checker: ^0.0.1+2
 
   reactive_forms: any
   loadmore: ^2.0.1

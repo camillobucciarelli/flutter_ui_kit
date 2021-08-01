@@ -13,6 +13,7 @@ export 'shimmer_container.dart';
 export 'shadowed_container.dart';
 export 'lists/list_item_group.dart';
 export 'lists/list_item.dart';
+export 'lists/list_with_bottom.dart';
 export 'header.dart';
 export 'expansion_card.dart';
 export 'customized_app_bar.dart';
