@@ -6,18 +6,20 @@ class ListWithBottom extends StatelessWidget {
   final Widget bottom;
   final double bottomSpacing;
   final ScrollPhysics physics;
+  final EdgeInsets? padding;
 
   const ListWithBottom({
     required this.children,
     required this.bottom,
     this.bottomSpacing = Dimens.SPACING_XXL,
     this.physics = const BouncingScrollPhysics(),
+    this.padding,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: MediaQuery.of(context).viewPadding,
+      padding: padding ?? MediaQuery.of(context).viewPadding,
       child: CustomScrollView(
         physics: physics,
         slivers: [
