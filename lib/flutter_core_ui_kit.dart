@@ -3,6 +3,7 @@ library flutter_core_ui_kit;
 import 'package:flutter/material.dart';
 import 'package:flutter_core_ui_kit/theme/core_theme.dart';
 
+export 'utils.dart';
 export 'user_avatar.dart';
 export 'toast.dart';
 export 'timer_widget_builder.dart';
