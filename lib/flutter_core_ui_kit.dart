@@ -37,6 +37,7 @@ export 'form_fields/reactive_forms_fields/reactive_alphanumeric_field.dart';
 export 'lists/paginated/paginated_list_view.dart';
 export 'lists/paginated/paginated_sliver_list.dart';
 export 'lists/paginated/load_more_delegate.dart';
+export 'page_view/page_view_indicator.dart';
 
 class CoreUIKit {
   static late final String filePickerPermissionTitle;
