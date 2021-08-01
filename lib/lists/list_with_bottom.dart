@@ -16,21 +16,24 @@ class ListWithBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: physics,
-      slivers: [
-        SliverList(
-          delegate: SliverChildListDelegate([
-            ...children,
-            SizedBox(height: bottomSpacing),
-          ]),
-        ),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          fillOverscroll: false,
-          child: bottom,
-        )
-      ],
+    return Padding(
+      padding: MediaQuery.of(context).viewPadding,
+      child: CustomScrollView(
+        physics: physics,
+        slivers: [
+          SliverList(
+            delegate: SliverChildListDelegate([
+              ...children,
+              SizedBox(height: bottomSpacing),
+            ]),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: false,
+            child: bottom,
+          )
+        ],
+      ),
     );
   }
 }
