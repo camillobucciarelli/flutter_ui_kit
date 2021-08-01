@@ -38,6 +38,7 @@ export 'lists/paginated/paginated_list_view.dart';
 export 'lists/paginated/paginated_sliver_list.dart';
 export 'lists/paginated/load_more_delegate.dart';
 export 'page_view/page_view_indicator.dart';
+export 'page_view/indicator_item.dart';
 
 class CoreUIKit {
   static late final String filePickerPermissionTitle;

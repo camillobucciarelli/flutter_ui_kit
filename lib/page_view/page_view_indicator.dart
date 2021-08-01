@@ -56,7 +56,7 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
   Expanded _indicator(BuildContext context, int index) {
     return Expanded(
       child: IndicatorItem(
-        indicatorHeight: widget.indicatorHeight,
+        height: widget.indicatorHeight,
         animationDuration: widget.animationDuration,
         active: widget.single ? index == currentPage : index <= currentPage,
       ),
