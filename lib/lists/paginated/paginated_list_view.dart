@@ -32,24 +32,27 @@ class PaginatedListView<ItemType> extends StatelessWidget {
       onLoadMore: () => loadMore(items.last),
       delegate: AppLoadMoreDelegate(MediaQuery.of(context)),
       child: ListView.separated(
-          padding: padding,
-          physics: physics,
-          itemBuilder: (_, position) {
-            if (position == 0 && header != null) {
-              return header!;
-            }
-            if (items.length - 1 >= position) {
-              return itemBuilder(items[position]);
-            }
-            return const SizedBox();
-          },
-          separatorBuilder: (context, index) {
-            if (index == 0 && header != null) {
-              return headerPadding ?? separatorBuilder(context, index);
-            }
-            return separatorBuilder(context, index);
-          },
-          itemCount: header == null ? items.length : items.length + 1),
+        padding: padding,
+        physics: physics,
+        itemBuilder: (_, position) {
+          if (position == 0 && header != null) {
+            return header!;
+          }
+          if (itemsLength - 1 >= position) {
+            return itemBuilder(items[position]);
+          }
+          return const SizedBox();
+        },
+        separatorBuilder: (context, index) {
+          if (index == 0 && header != null) {
+            return headerPadding ?? separatorBuilder(context, index);
+          }
+          return separatorBuilder(context, index);
+        },
+        itemCount: itemsLength,
+      ),
     );
   }
+
+  int get itemsLength => header == null ? items.length : items.length + 1;
 }
