@@ -34,14 +34,12 @@ class PaginatedListView<ItemType> extends StatelessWidget {
       child: ListView.separated(
         padding: padding,
         physics: physics,
+        itemCount: itemsLength,
         itemBuilder: (_, position) {
           if (position == 0 && header != null) {
             return header!;
           }
-          if (itemsLength - 1 >= position) {
-            return itemBuilder(items[position]);
-          }
-          return const SizedBox();
+          return itemBuilder(items[header == null ? position : position - 1]);
         },
         separatorBuilder: (context, index) {
           if (index == 0 && header != null) {
@@ -49,7 +47,6 @@ class PaginatedListView<ItemType> extends StatelessWidget {
           }
           return separatorBuilder(context, index);
         },
-        itemCount: itemsLength,
       ),
     );
   }
