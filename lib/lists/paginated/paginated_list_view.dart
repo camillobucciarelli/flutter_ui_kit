@@ -11,7 +11,7 @@ class PaginatedListView<ItemType> extends StatelessWidget {
   final EdgeInsets? padding;
   final ScrollPhysics? physics;
   final Widget? header;
-  final EdgeInsets? headerPadding;
+  final Widget? headerPadding;
 
   const PaginatedListView({
     required this.items,
@@ -45,7 +45,7 @@ class PaginatedListView<ItemType> extends StatelessWidget {
           },
           separatorBuilder: (context, index) {
             if (index == 0 && header != null) {
-              return header!;
+              return headerPadding ?? separatorBuilder(context, index);
             }
             return separatorBuilder(context, index);
           },
