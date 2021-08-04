@@ -10,6 +10,8 @@ class PaginatedListView<ItemType> extends StatelessWidget {
   final OnLoadMore<ItemType> loadMore;
   final EdgeInsets? padding;
   final ScrollPhysics? physics;
+  final Widget? header;
+  final EdgeInsets? headerPadding;
 
   const PaginatedListView({
     required this.items,
@@ -17,6 +19,8 @@ class PaginatedListView<ItemType> extends StatelessWidget {
     required this.totalCount,
     required this.itemBuilder,
     required this.separatorBuilder,
+    this.header,
+    this.headerPadding,
     this.padding,
     this.physics,
   });
@@ -30,9 +34,22 @@ class PaginatedListView<ItemType> extends StatelessWidget {
       child: ListView.separated(
           padding: padding,
           physics: physics,
-          itemBuilder: (_, position) => items.length - 1 >= position ? itemBuilder(items[position]) : const SizedBox(),
-          separatorBuilder: separatorBuilder,
-          itemCount: items.length),
+          itemBuilder: (_, position) {
+            if (position == 0 && header != null) {
+              return header!;
+            }
+            if (items.length - 1 >= position) {
+              return itemBuilder(items[position]);
+            }
+            return const SizedBox();
+          },
+          separatorBuilder: (context, index) {
+            if (index == 0 && header != null) {
+              return header!;
+            }
+            return separatorBuilder(context, index);
+          },
+          itemCount: header == null ? items.length : items.length + 1),
     );
   }
 }
