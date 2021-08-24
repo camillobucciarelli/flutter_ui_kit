@@ -11,21 +11,23 @@ import 'package:flutter_core_ui_kit/file/crop_image.dart';
 import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
 import 'package:image_picker/image_picker.dart';
 
+enum Source { camera, gallery, file }
+
 class FilePickerActionSheet {
   final String galleryActionLabel;
   final String cameraActionLabel;
-  final bool onlyImages;
+  final String fileActionLabel;
   final List<String>? allowedExtensions;
-  final bool onlyFromGallery;
   final bool enableCrop;
   final bool cropCircle;
+  final List<Source> sources;
 
   FilePickerActionSheet({
     required this.galleryActionLabel,
     required this.cameraActionLabel,
+    required this.fileActionLabel,
+    required this.sources,
     this.allowedExtensions,
-    this.onlyImages = true,
-    this.onlyFromGallery = false,
     this.enableCrop = false,
     this.cropCircle = false,
   });
@@ -36,62 +38,69 @@ class FilePickerActionSheet {
     OnFileSelected? onFileSelected,
     OnError? onError,
   }) async {
-    if (kIsWeb || onlyFromGallery) {
-      if (onlyImages) {
+    if (kIsWeb) {
+      if (!sources.contains(Source.file)) {
         _getImage(ImageSource.gallery, context, onFileSelected, onError);
       } else {
         _getFile(context, onFileSelected, onError);
       }
     } else {
-      final result = await showModalActionSheet<ImageSource>(
+      final result = await showModalActionSheet<Source>(
         context: context,
         actions: [
-          SheetAction(
-              key: ImageSource.gallery,
+          if (sources.contains(Source.gallery))
+            SheetAction(
+              key: Source.gallery,
               label: galleryActionLabel,
-              icon: Icons.photo_library_rounded),
-          SheetAction(
-            key: ImageSource.camera,
-            label: cameraActionLabel,
-            icon: Icons.photo_camera_rounded,
-          ),
+              icon: Icons.photo_library_rounded,
+            ),
+          if (sources.contains(Source.camera))
+            SheetAction(
+              key: Source.camera,
+              label: cameraActionLabel,
+              icon: Icons.photo_camera_rounded,
+            ),
+          if (sources.contains(Source.file))
+            SheetAction(
+              key: Source.file,
+              label: fileActionLabel,
+              icon: Icons.photo_camera_rounded,
+            ),
         ],
         style: style,
       );
-      if(result != null) {
-        if (result == ImageSource.gallery && !onlyImages) {
+      switch(result) {
+        case Source.camera:
+          _getImage(ImageSource.camera, context, onFileSelected, onError);
+          break;
+        case Source.gallery:
+          _getImage(ImageSource.gallery, context, onFileSelected, onError);
+          break;
+        case Source.file:
           _getFile(context, onFileSelected, onError);
-        } else {
-          _getImage(result, context, onFileSelected, onError);
-        }
+          break;
+        default:
       }
     }
   }
 
-  void _getFile(BuildContext context, OnFileSelected? onFileSelected,
-      OnError? onError) async {
+  void _getFile(BuildContext context, OnFileSelected? onFileSelected, OnError? onError) async {
     final result = await FilePicker.platform.pickFiles(
       allowCompression: true,
       withData: true,
       type: allowedExtensions?.isEmpty ?? true ? FileType.any : FileType.custom,
-      allowedExtensions:
-          allowedExtensions?.isEmpty ?? true ? null : allowedExtensions,
+      allowedExtensions: allowedExtensions?.isEmpty ?? true ? null : allowedExtensions,
     );
-    if (result != null &&
-        result.files.single.path != null &&
-        result.files.single.bytes != null) {
-      onFileSelected?.call(
-          PickedFile(result.files.single.path!, result.files.single.bytes!));
+    if (result != null && result.files.single.path != null && result.files.single.bytes != null) {
+      onFileSelected?.call(PickedFile(result.files.single.path!, result.files.single.bytes!));
     }
   }
 
-  void _getImage(ImageSource source, BuildContext context,
-      OnFileSelected? onImageSelected, OnError? onError) async {
+  void _getImage(ImageSource source, BuildContext context, OnFileSelected? onImageSelected, OnError? onError) async {
     try {
-      final pickedFile = await ImagePicker().getImage(
-          source: source, maxHeight: 1024, maxWidth: 1024, imageQuality: 70);
+      final pickedFile = await ImagePicker().pickImage(source: source, maxHeight: 1024, maxWidth: 1024, imageQuality: 70);
       final selectedImage = await pickedFile?.readAsBytes();
-      if(selectedImage != null) {
+      if (selectedImage != null) {
         if (enableCrop) {
           await Navigator.of(context).push(
             MaterialPageRoute(
@@ -99,8 +108,7 @@ class FilePickerActionSheet {
               builder: (context) => CropImage(
                 imageData: selectedImage,
                 circle: cropCircle,
-                onCropped: (data) =>
-                    onImageSelected?.call(PickedFile(pickedFile!.path, data)),
+                onCropped: (data) => onImageSelected?.call(PickedFile(pickedFile!.path, data)),
               ),
             ),
           );
@@ -109,10 +117,7 @@ class FilePickerActionSheet {
         }
       }
     } catch (e) {
-      if (!kIsWeb &&
-          e is PlatformException &&
-          (e.code == 'camera_access_denied' ||
-              e.code == 'photo_access_denied')) {
+      if (!kIsWeb && e is PlatformException && (e.code == 'camera_access_denied' || e.code == 'photo_access_denied')) {
         final result = await showOkCancelAlertDialog(
           context: context,
           title: CoreUIKit.filePickerPermissionTitle,

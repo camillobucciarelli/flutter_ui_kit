@@ -17,9 +17,9 @@ dependencies:
   app_settings: ^4.1.1 # only mobile
 
   # file manager
-  image_picker: ^0.8.2
-  file_picker: ^3.0.4
-  crop_your_image: ^0.5.3
+  image_picker: ^0.8.3+3
+  file_picker: ^4.0.0
+  crop_your_image: ^0.6.0+1
   path_provider: ^2.0.2 # only mobile
 
   internet_connection_checker: ^0.0.1+2
