@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_core_ui_kit/theme/core_theme.dart';
 
-
 class Header extends StatelessWidget {
   final String title;
   final Color? titleColor;
@@ -32,7 +31,7 @@ class Header extends StatelessWidget {
             ),
           ),
           const SizedBox(width: Dimens.SPACING_XL),
-          if (trailing != null) trailing!,
+          if (trailing != null) Flexible(child: trailing!),
         ],
       ),
     );
