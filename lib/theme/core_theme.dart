@@ -3,12 +3,9 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-part 'core_colors.dart';
-
 part 'constants.dart';
-
+part 'core_colors.dart';
 part 'core_text_theme.dart';
-
 part 'utils.dart';
 
 class CoreTheme {
