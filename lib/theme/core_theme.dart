@@ -141,7 +141,7 @@ class CoreTheme {
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
         shadowColor: _themeColorsLight.primaryLight,
-        textStyle: ThemeData.light().textTheme.buttonText,
+        textStyle: ThemeData.light().textTheme.buttonText?.copyWith(fontFamily: _fontFamily),
         animationDuration: Durations.BUTTON_TAP,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
@@ -155,7 +155,7 @@ class CoreTheme {
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
         shadowColor: _themeColorsLight.primaryLight,
-        textStyle: ThemeData.light().textTheme.buttonText,
+        textStyle: ThemeData.light().textTheme.buttonText?.copyWith(fontFamily: _fontFamily),
         animationDuration: Durations.BUTTON_TAP,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
@@ -169,7 +169,7 @@ class CoreTheme {
         minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
         padding: const EdgeInsets.all(Dimens.SPACING_L),
         shadowColor: _themeColorsLight.primaryLight,
-        textStyle: ThemeData.light().textTheme.buttonText,
+        textStyle: ThemeData.light().textTheme.buttonText?.copyWith(fontFamily: _fontFamily),
         animationDuration: Durations.BUTTON_TAP,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: _themeColorsLight.primary, style: BorderStyle.solid),
