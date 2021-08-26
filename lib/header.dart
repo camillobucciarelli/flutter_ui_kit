@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_core_ui_kit/theme/core_theme.dart';
@@ -25,9 +26,10 @@ class Header extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            child: Text(
+            child: AutoSizeText(
               title,
-              style: _getTextStyle(context),
+              style: textStyle?.apply(color: titleColor) ?? Theme.of(context).textTheme.header?.apply(color: titleColor),
+              maxLines: 1,
             ),
           ),
           const SizedBox(width: Dimens.SPACING_XL),
@@ -35,10 +37,5 @@ class Header extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  TextStyle? _getTextStyle(BuildContext context) {
-    if (textStyle != null) return textStyle?.apply(color: titleColor);
-    return Theme.of(context).textTheme.header?.apply(color: titleColor);
   }
 }
