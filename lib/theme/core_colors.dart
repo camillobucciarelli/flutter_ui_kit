@@ -15,6 +15,10 @@ class CoreColors {
 
   static const Color lightGreen = Color(0xFFA9E5BB);
 
+  static const Color gray = Color(0xFFE6E6EA);
+
+  static const Color lightGray = Color(0xFFF4F4F8);
+
   static const Color blue = Color(0xFF073B4C);
 
   static const Color lightBlue = Color(0xFF118AB2);
