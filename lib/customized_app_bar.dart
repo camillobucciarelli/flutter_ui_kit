@@ -26,7 +26,7 @@ class CustomizedAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.scrollController,
     this.fadeHeight = 0,
     this.appBarHeight = Dimens.APP_BAR_HEIGHT,
-  }): assert((title != null && titleWidget == null) || (title == null && titleWidget != null));
+  });
 
   @override
   _CustomizedAppBarState createState() => _CustomizedAppBarState();
