@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import '../theme/core_theme.dart';
 
 class IndicatorItem extends StatelessWidget {
   final double height;
@@ -7,7 +7,13 @@ class IndicatorItem extends StatelessWidget {
   final Duration animationDuration;
   final bool active;
 
-  const IndicatorItem({this.height = Dimens.SPACING_XS, this.width, this.animationDuration = Durations.BUTTON_TAP, this.active = false});
+  const IndicatorItem({
+    Key? key,
+    this.height = Dimens.spacingXS,
+    this.width,
+    this.animationDuration = Durations.buttonTap,
+    this.active = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,7 @@ class IndicatorItem extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
           color: active ? ThemeColors.of(context).primary : ThemeColors.of(context).primaryLight,
-          borderRadius: BorderRadius.circular(Dimens.RADIUS_S)),
+          borderRadius: BorderRadius.circular(Dimens.radiusS)),
     );
   }
 }

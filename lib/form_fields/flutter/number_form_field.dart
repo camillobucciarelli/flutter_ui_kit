@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/buttons/button.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import '../../buttons/button.dart';
+import '../../theme/core_theme.dart';
 
 import 'alphanumeric_form_field.dart';
 
@@ -84,10 +84,10 @@ class _NumberFormFieldState extends State<NumberFormField> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Button.icon(icon: Icons.remove_rounded, size: Dimens.ICON_BUTTON_SIZE * .8, onPressed: _remove),
-        const SizedBox(width: Dimens.SPACING_XS),
-        Button.icon(icon: Icons.add_rounded, size: Dimens.ICON_BUTTON_SIZE * .8, onPressed: _add),
-        const SizedBox(width: Dimens.SPACING_S),
+        Button.icon(icon: Icons.remove_rounded, size: Dimens.iconButtonSize * .8, onPressed: _remove),
+        const SizedBox(width: Dimens.spacingXS),
+        Button.icon(icon: Icons.add_rounded, size: Dimens.iconButtonSize * .8, onPressed: _add),
+        const SizedBox(width: Dimens.spacingS),
       ],
     );
   }

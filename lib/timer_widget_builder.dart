@@ -8,13 +8,14 @@ class TimerBuilder extends StatefulWidget {
 
   const TimerBuilder(
     this.interval, {
+    Key? key,
     required this.builder,
-  });
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _TimerBuilderState();
 
-  const TimerBuilder.periodic(this.interval, {required this.builder});
+  const TimerBuilder.periodic(this.interval, {Key? key, required this.builder}) : super(key: key);
 }
 
 class _TimerBuilderState extends State<TimerBuilder> {

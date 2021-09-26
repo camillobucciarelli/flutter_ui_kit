@@ -5,37 +5,37 @@ class Dimens {
 
   static final blurredFilter = ImageFilter.blur(sigmaX: 7, sigmaY: 7);
 
-  static const ICON_BUTTON_SIZE = 48.0;
-  static const USER_AVATAR = 50.0;
-  static const BUTTON_HEIGHT = 56.0;
-  static const TEXT_FIELD_HEIGHT = 64.0;
-  static const APP_BAR_HEIGHT = 80.0;
-  static const LIST_ITEM_HEIGHT = 80.0;
-  static const PERSISTENT_HEADER_HEIGHT = 85.0;
+  static const iconButtonSize = 48.0;
+  static const userAvatarSize = 50.0;
+  static const buttonHeight = 56.0;
+  static const textFieldHeight = 64.0;
+  static const appBarHeight = 80.0;
+  static const listItemHeight = 80.0;
+  static const persistentHeaderHeight = 85.0;
 
-  static const SPACING_XXS = 4.0;
-  static const SPACING_XS = 8.0;
-  static const SPACING_S = 12.0;
-  static const SPACING_M = 16.0;
-  static const SPACING_L = 20.0;
-  static const SPACING_XL = 24.0;
-  static const SPACING_XXL = 32.0;
+  static const spacingXXS = 4.0;
+  static const spacingXS = 8.0;
+  static const spacingS = 12.0;
+  static const spacingM = 16.0;
+  static const spacingL = 20.0;
+  static const spacingXL = 24.0;
+  static const spacingXXL = 32.0;
 
-  static const RADIUS_XXS = 4.0;
-  static const RADIUS_XS = 8.0;
-  static const RADIUS_S = 12.0;
-  static const RADIUS_M = 16.0;
-  static const RADIUS_L = 20.0;
-  static const RADIUS_XL = 24.0;
-  static const RADIUS_XXL = 32.0;
+  static const radiusXXS = 4.0;
+  static const radiusXS = 8.0;
+  static const radiusS = 12.0;
+  static const radiusM = 16.0;
+  static const radiusL = 20.0;
+  static const radiusXL = 24.0;
+  static const radiusXXL = 32.0;
 }
 
 class Durations {
   Durations._();
 
-  static const ANIMATED_SWITCHER = Duration(milliseconds: 600);
-  static const ANIMATED_TAP = Duration(milliseconds: 300);
-  static const BUTTON_TAP = Duration(milliseconds: 100);
+  static const animatedSwitcher = Duration(milliseconds: 600);
+  static const animatedTap = Duration(milliseconds: 300);
+  static const buttonTap = Duration(milliseconds: 100);
 }
 
-enum MediaQueryBreakPoints { SMALL_SCREEN, MEDIUM_SCREEN, LARGE_SCREEN }
+enum MediaQueryBreakPoints { smallScreen, mediumScreen, largeScreen }

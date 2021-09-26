@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import '../../theme/core_theme.dart';
 
 class AlphanumericFormField extends StatefulWidget {
   final String? labelText;
@@ -186,7 +186,7 @@ extension on _SuffixIconTypes {
   Widget? getSuffixIcon(_AlphanumericFormFieldState state) => {
         _SuffixIconTypes.clear: IconButton(
             padding: EdgeInsets.zero,
-            icon: Icon(Icons.cancel, color: ThemeColors.of(state.context).accent),
+            icon: Icon(Icons.cancel, color: ThemeColors.of(state.context).secondary),
             onPressed: () {
               state._controller.clear();
               state.widget.onChanged?.call('');
@@ -194,14 +194,14 @@ extension on _SuffixIconTypes {
         _SuffixIconTypes.error: const Icon(Icons.error_rounded, color: CoreColors.red),
         _SuffixIconTypes.obscureText: IconButton(
           padding: EdgeInsets.zero,
-          icon: Icon(Icons.visibility_rounded, color: ThemeColors.of(state.context).accent),
+          icon: Icon(Icons.visibility_rounded, color: ThemeColors.of(state.context).secondary),
           onPressed: () {
             state._toggleObscureText();
           },
         ),
         _SuffixIconTypes.showText: IconButton(
           padding: EdgeInsets.zero,
-          icon: Icon(Icons.visibility_off_rounded, color: ThemeColors.of(state.context).accent),
+          icon: Icon(Icons.visibility_off_rounded, color: ThemeColors.of(state.context).secondary),
           onPressed: () {
             state._toggleObscureText();
           },

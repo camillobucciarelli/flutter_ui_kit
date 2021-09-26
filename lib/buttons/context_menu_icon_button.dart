@@ -13,9 +13,10 @@ class ContextMenuButton<T> extends StatelessWidget {
   const ContextMenuButton({
     required this.actions,
     required this.icon,
+    Key? key,
     this.onSelected,
     this.adaptiveStyle = AdaptiveStyle.adaptive,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

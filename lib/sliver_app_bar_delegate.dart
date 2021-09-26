@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
-
+import 'theme/core_theme.dart';
 
 class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final Widget child;
@@ -9,10 +8,10 @@ class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   SliverAppBarDelegate({required this.child, required this.safeAreaTop});
 
   @override
-  double get minExtent => Dimens.APP_BAR_HEIGHT + safeAreaTop;
+  double get minExtent => Dimens.appBarHeight + safeAreaTop;
 
   @override
-  double get maxExtent => Dimens.APP_BAR_HEIGHT + safeAreaTop;
+  double get maxExtent => Dimens.appBarHeight + safeAreaTop;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {

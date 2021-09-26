@@ -48,9 +48,9 @@ abstract class ThemeColors {
 
   Color get primaryLighter;
 
-  Color get accent;
+  Color get secondary;
 
-  Color get accentLight;
+  Color get secondaryLight;
 
-  Color get accentLighter;
+  Color get secondaryLighter;
 }

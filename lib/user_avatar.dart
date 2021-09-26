@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import 'theme/core_theme.dart';
 
 class UserAvatar extends StatelessWidget {
   final String firstName;
@@ -8,7 +8,13 @@ class UserAvatar extends StatelessWidget {
   final String imageUrl;
   final double size;
 
-  const UserAvatar({required this.firstName, required this.lastName, this.size = Dimens.USER_AVATAR, this.imageUrl = ''});
+  const UserAvatar({
+    Key? key,
+    required this.firstName,
+    required this.lastName,
+    this.size = Dimens.userAvatarSize,
+    this.imageUrl = '',
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

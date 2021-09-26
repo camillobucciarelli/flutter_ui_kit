@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import 'theme/core_theme.dart';
 
 class SnackBarOverlay {
   static void dismiss() {
@@ -40,13 +40,13 @@ class _SnackBarOverlayView {
         );
       },
     );
-    if(_overlayEntry != null) {
+    if (_overlayEntry != null) {
       _overlayState?.insert(_overlayEntry!);
     }
   }
 
   static void dismiss() async {
-    if(_overlayKey?.currentState != null){
+    if (_overlayKey?.currentState != null) {
       (_overlayKey?.currentState as _SnackBarOverlayWidgetState).dismiss();
     }
     if (_overlayKey != null && (_overlayState?.mounted ?? false)) _overlayEntry?.remove();
@@ -118,7 +118,7 @@ class _SnackBarOverlayWidgetState extends State<_SnackBarOverlayWidget> with Sin
         children: [
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(Dimens.SPACING_L),
+            padding: const EdgeInsets.all(Dimens.spacingL),
             color: widget.overlayTheme.background,
             child: Text(
               widget.msg,
@@ -150,7 +150,7 @@ class SnackBarOverlayThemeError extends SnackBarOverlayTheme {
   @override
   Color get textColor => Colors.white;
   @override
-  EdgeInsetsGeometry get padding => const EdgeInsets.all(Dimens.SPACING_L);
+  EdgeInsetsGeometry get padding => const EdgeInsets.all(Dimens.spacingL);
 }
 
 class SnackBarOverlayThemeInfo extends SnackBarOverlayTheme {
@@ -164,7 +164,7 @@ class SnackBarOverlayThemeInfo extends SnackBarOverlayTheme {
   @override
   Color get textColor => Colors.white;
   @override
-  EdgeInsetsGeometry get padding => const EdgeInsets.all(Dimens.SPACING_L);
+  EdgeInsetsGeometry get padding => const EdgeInsets.all(Dimens.spacingL);
 }
 
 class SnackBarOverlayThemeWarning extends SnackBarOverlayTheme {
@@ -178,5 +178,5 @@ class SnackBarOverlayThemeWarning extends SnackBarOverlayTheme {
   @override
   Color get textColor => Colors.white;
   @override
-  EdgeInsetsGeometry get padding => const EdgeInsets.all(Dimens.SPACING_L);
+  EdgeInsetsGeometry get padding => const EdgeInsets.all(Dimens.spacingL);
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import 'theme/core_theme.dart';
 
 class ShadowedContainer extends AnimatedContainer {
   ShadowedContainer(
@@ -32,7 +32,7 @@ class ShadowedContainer extends AnimatedContainer {
             child: child,
             decoration: BoxDecoration(
               color: !isShimmer ? backgroundColor ?? themeColors.background : null,
-              borderRadius: BorderRadius.circular(Dimens.RADIUS_XXL),
+              borderRadius: BorderRadius.circular(Dimens.radiusXXL),
               border: borderColor != null ? Border.all(color: borderColor) : Border.all(color: themeColors.primary),
               boxShadow: [
                 if (!isShimmer)

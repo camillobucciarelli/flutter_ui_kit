@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/lists/paginated/load_more_delegate.dart';
+import 'load_more_delegate.dart';
 import 'package:loadmore/loadmore.dart';
 
 class PaginatedSliverList<ItemType> extends StatelessWidget {
@@ -11,13 +11,14 @@ class PaginatedSliverList<ItemType> extends StatelessWidget {
   final ScrollPhysics? physics;
 
   const PaginatedSliverList({
+    Key? key,
     required this.items,
     required this.totalCount,
     required this.itemBuilder,
     required this.loadMore,
     this.padding,
     this.physics,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

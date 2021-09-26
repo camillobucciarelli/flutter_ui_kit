@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import 'theme/core_theme.dart';
 
 class Header extends StatelessWidget {
   final String title;
@@ -10,12 +10,14 @@ class Header extends StatelessWidget {
   final EdgeInsets padding;
   final TextStyle? textStyle;
 
-  const Header(
-      {required this.title,
-      this.titleColor,
-      this.trailing,
-      this.textStyle,
-      this.padding = const EdgeInsets.only(top: Dimens.SPACING_S, bottom: Dimens.SPACING_XL)});
+  const Header({
+    Key? key,
+    required this.title,
+    this.titleColor,
+    this.trailing,
+    this.textStyle,
+    this.padding = const EdgeInsets.only(top: Dimens.spacingS, bottom: Dimens.spacingXL),
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class Header extends StatelessWidget {
               maxLines: 1,
             ),
           ),
-          const SizedBox(width: Dimens.SPACING_XL),
+          const SizedBox(width: Dimens.spacingXL),
           if (trailing != null) Flexible(child: trailing!),
         ],
       ),

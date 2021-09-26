@@ -7,9 +7,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_core_ui_kit/file/crop_image.dart';
-import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../flutter_core_ui_kit.dart';
+import 'crop_image.dart';
 
 enum Source { camera, gallery, file }
 
@@ -21,12 +22,20 @@ class FilePickerActionSheet {
   final bool enableCrop;
   final bool cropCircle;
   final List<Source> sources;
+  final String filePickerPermissionTitle;
+  final String Function(String) filePickerPermissionMessageByCode;
+  final String filePickerPermissionOkButtonText;
+  final String filePickerPermissionCancelButtonText;
 
   FilePickerActionSheet({
     required this.galleryActionLabel,
     required this.cameraActionLabel,
     required this.fileActionLabel,
     required this.sources,
+    required this.filePickerPermissionTitle,
+    required this.filePickerPermissionMessageByCode,
+    required this.filePickerPermissionOkButtonText,
+    required this.filePickerPermissionCancelButtonText,
     this.allowedExtensions,
     this.enableCrop = false,
     this.cropCircle = false,
@@ -69,7 +78,7 @@ class FilePickerActionSheet {
         ],
         style: style,
       );
-      switch(result) {
+      switch (result) {
         case Source.camera:
           _getImage(ImageSource.camera, context, onFileSelected, onError);
           break;
@@ -120,10 +129,10 @@ class FilePickerActionSheet {
       if (!kIsWeb && e is PlatformException && (e.code == 'camera_access_denied' || e.code == 'photo_access_denied')) {
         final result = await showOkCancelAlertDialog(
           context: context,
-          title: CoreUIKit.filePickerPermissionTitle,
-          message: CoreUIKit.filePickerPermissionMessageByCode(e.code),
-          okLabel: CoreUIKit.filePickerPermissionOkButtonText,
-          cancelLabel: CoreUIKit.cancelButtonText,
+          title: filePickerPermissionTitle,
+          message: filePickerPermissionMessageByCode(e.code),
+          okLabel: filePickerPermissionOkButtonText,
+          cancelLabel: filePickerPermissionCancelButtonText,
         );
         switch (result) {
           case OkCancelResult.ok:

@@ -4,11 +4,11 @@ extension $ListWidget on List<Widget> {
   List<Widget> addVerticalSpacer(double space) {
     return asMap()
         .map((key, value) {
-      if (key == length - 1) {
-        return MapEntry(key, [value]);
-      }
-      return MapEntry(key, [value, SizedBox(height: space)]);
-    })
+          if (key == length - 1) {
+            return MapEntry(key, [value]);
+          }
+          return MapEntry(key, [value, SizedBox(height: space)]);
+        })
         .values
         .fold(<Widget>[], (a, b) => [...a, ...b]);
   }
@@ -16,11 +16,11 @@ extension $ListWidget on List<Widget> {
   List<Widget> addHorizontalSpacer(double space) {
     return asMap()
         .map((key, value) {
-      if (key == length - 1) {
-        return MapEntry(key, [value]);
-      }
-      return MapEntry(key, [value, SizedBox(width: space)]);
-    })
+          if (key == length - 1) {
+            return MapEntry(key, [value]);
+          }
+          return MapEntry(key, [value, SizedBox(width: space)]);
+        })
         .values
         .fold(<Widget>[], (a, b) => [...a, ...b]);
   }
@@ -28,11 +28,11 @@ extension $ListWidget on List<Widget> {
   List<Widget> addHorizontalDivider(Divider divider) {
     return asMap()
         .map((key, value) {
-      if (key == length - 1) {
-        return MapEntry(key, [value]);
-      }
-      return MapEntry(key, [value, divider]);
-    })
+          if (key == length - 1) {
+            return MapEntry(key, [value]);
+          }
+          return MapEntry(key, [value, divider]);
+        })
         .values
         .fold(<Widget>[], (a, b) => [...a, ...b]);
   }

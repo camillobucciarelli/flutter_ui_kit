@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 
-import 'package:flutter_core_ui_kit/adaptive_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
 
+import 'adaptive_container.dart';
 import 'buttons/button.dart';
+import 'flutter_core_ui_kit.dart';
+import 'theme/core_theme.dart';
 
 class CustomizedAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String? title;
@@ -18,6 +18,7 @@ class CustomizedAppBar extends StatefulWidget implements PreferredSizeWidget {
   final ScrollController? scrollController;
 
   const CustomizedAppBar({
+    Key? key,
     this.title,
     this.titleWidget,
     this.centerTitle = true,
@@ -25,8 +26,8 @@ class CustomizedAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.actions,
     this.scrollController,
     this.fadeHeight = 0,
-    this.appBarHeight = Dimens.APP_BAR_HEIGHT,
-  });
+    this.appBarHeight = Dimens.appBarHeight,
+  }) : super(key: key);
 
   @override
   _CustomizedAppBarState createState() => _CustomizedAppBarState();
@@ -45,7 +46,7 @@ class CustomizedAppBar extends StatefulWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(Dimens.APP_BAR_HEIGHT);
+  Size get preferredSize => const Size.fromHeight(Dimens.appBarHeight);
 }
 
 class _CustomizedAppBarState extends State<CustomizedAppBar> {
@@ -76,11 +77,11 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
           child: AppBar(
             title: _title,
             centerTitle: widget.centerTitle,
-            leadingWidth: Dimens.SPACING_M * 2 + Dimens.ICON_BUTTON_SIZE,
+            leadingWidth: Dimens.spacingM * 2 + Dimens.iconButtonSize,
             leading: widget.leading ?? CustomizedAppBar.leadingButton(context),
             elevation: 0,
             toolbarHeight: widget.appBarHeight,
-            actions: [...widget.actions ?? [], const SizedBox(width: Dimens.SPACING_M)],
+            actions: [...widget.actions ?? [], const SizedBox(width: Dimens.spacingM)],
           ),
         ),
       ),
@@ -89,9 +90,9 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
 
   Widget get _title {
     Widget _titleWidget() {
-      if(widget.title != null) {
+      if (widget.titleWidget == null) {
         return Text(
-          widget.title!,
+          widget.title ?? '',
           style: Theme.of(context).textTheme.appBar,
         );
       }

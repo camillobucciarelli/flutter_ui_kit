@@ -1,19 +1,19 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import 'theme/core_theme.dart';
 
 import 'adaptive_container.dart';
 
 const _animationDuration = Duration(milliseconds: 1000);
 const _toastDuration = Duration(milliseconds: 5000);
-const _padding = EdgeInsets.all(Dimens.SPACING_L);
+const _padding = EdgeInsets.all(Dimens.spacingL);
 
 EdgeInsets _margin(BuildContext context) => EdgeInsets.fromLTRB(
-      Dimens.SPACING_XS,
-      MediaQuery.of(context).viewPadding.top + Dimens.SPACING_XS,
-      Dimens.SPACING_XS,
-      Dimens.SPACING_L,
+      Dimens.spacingXS,
+      MediaQuery.of(context).viewPadding.top + Dimens.spacingXS,
+      Dimens.spacingXS,
+      Dimens.spacingL,
     );
 
 /// Following the different component configurations:
@@ -78,13 +78,13 @@ class _ToastView {
         );
       },
     );
-    if(_overlayEntry != null) {
+    if (_overlayEntry != null) {
       _overlayState?.insert(_overlayEntry!);
     }
   }
 
   static void dismiss() async {
-    if(_overlayKey?.currentState != null){
+    if (_overlayKey?.currentState != null) {
       (_overlayKey?.currentState as _ToastWidgetState).dismiss();
     }
     if (_overlayKey != null && (_overlayState?.mounted ?? false)) _overlayEntry?.remove();
@@ -98,33 +98,33 @@ extension _$ToastAppearance on ToastAppearance {
   BoxDecoration Function(ThemeData) get decoration =>
       {
         ToastAppearance.error: (ThemeData theme) => BoxDecoration(
-              boxShadow: [
-                const BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
+              boxShadow: const [
+                BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
               ],
               color: CoreColors.lightRed,
-              borderRadius: BorderRadius.circular(Dimens.RADIUS_S),
+              borderRadius: BorderRadius.circular(Dimens.radiusS),
             ),
         ToastAppearance.info: (ThemeData theme) => BoxDecoration(
-              boxShadow: [
-                const BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
+              boxShadow: const [
+                BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
               ],
               color: CoreColors.lightGreen,
-              borderRadius: BorderRadius.circular(Dimens.RADIUS_S),
+              borderRadius: BorderRadius.circular(Dimens.radiusS),
             ),
         ToastAppearance.cta: (ThemeData theme) => BoxDecoration(
-              boxShadow: [
-                const BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
+              boxShadow: const [
+                BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
               ],
               color: theme.primaryColor,
-              borderRadius: BorderRadius.circular(Dimens.RADIUS_S),
+              borderRadius: BorderRadius.circular(Dimens.radiusS),
             )
       }[this] ??
       (ThemeData theme) => BoxDecoration(
-            boxShadow: [
-              const BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
+            boxShadow: const [
+              BoxShadow(offset: Offset(0, 15), blurRadius: 20, color: Colors.black12, spreadRadius: 5),
             ],
             color: theme.primaryColor,
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_S),
+            borderRadius: BorderRadius.circular(Dimens.radiusS),
           );
 
   Function get content =>
@@ -147,7 +147,7 @@ extension _$ToastAppearance on ToastAppearance {
                     style: Theme.of(context).textTheme.snackBar,
                   ),
                 ),
-                const SizedBox(width: Dimens.SPACING_XS),
+                const SizedBox(width: Dimens.spacingXS),
                 TextButton(
                   onPressed: ctaAction,
                   child: Text(

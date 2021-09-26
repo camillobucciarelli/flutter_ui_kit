@@ -4,17 +4,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 part 'constants.dart';
+
 part 'core_colors.dart';
+
 part 'core_text_theme.dart';
+
 part 'utils.dart';
 
 class CoreTheme {
+  static late final String _fontFamily;
   static late final ThemeColors _themeColorsLight;
   static late final ThemeColors _themeColorsDark;
 
-  static void init(ThemeColors themeColorsLight, ThemeColors themeColorsDark) {
+  static void init({
+    required ThemeColors themeColorsLight,
+    required ThemeColors themeColorsDark,
+    required String fontFamily,
+  }) {
     _themeColorsLight = themeColorsLight;
     _themeColorsDark = themeColorsDark;
+    _fontFamily = fontFamily;
   }
 
   //region Cupertino
@@ -48,9 +57,6 @@ class CoreTheme {
     hoverColor: Colors.transparent,
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
-    accentColorBrightness: Brightness.light,
-    buttonColor: _themeColorsLight.accent,
-    accentTextTheme: ThemeData.light().textTheme,
     //region Input fields
     inputDecorationTheme: ThemeData.light().inputDecorationTheme.copyWith(
           filled: true,
@@ -62,34 +68,32 @@ class CoreTheme {
           fillColor: Colors.transparent,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: _themeColorsLight.primary),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           disabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.transparent),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: _themeColorsLight.accent),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderSide: BorderSide(color: _themeColorsLight.secondary),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: CoreColors.red),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: CoreColors.red),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
         ),
     textSelectionTheme: ThemeData.light().textSelectionTheme.copyWith(
-          cursorColor: _themeColorsLight.accent,
-          selectionColor: _themeColorsLight.accent.withOpacity(.4),
-          selectionHandleColor: _themeColorsLight.accent.withOpacity(.4),
+          cursorColor: _themeColorsLight.secondary,
+          selectionColor: _themeColorsLight.secondary.withOpacity(.4),
+          selectionHandleColor: _themeColorsLight.secondary.withOpacity(.4),
         ),
-    //endregion
-    accentColor: _themeColorsLight.accent,
-    hintColor: _themeColorsLight.accent,
-    focusColor: _themeColorsLight.accent,
+    hintColor: _themeColorsLight.secondary,
+    focusColor: _themeColorsLight.secondary,
     fontFamily: _fontFamily,
     //region App bar
     appBarTheme: ThemeData.light().appBarTheme.copyWith(
@@ -125,7 +129,7 @@ class CoreTheme {
       unselectedLabelColor: _themeColorsLight.textColorLight,
       indicatorSize: TabBarIndicatorSize.tab,
       indicator: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_XS)),
+        borderRadius: BorderRadius.all(Radius.circular(Dimens.radiusXS)),
         color: Colors.white,
       ),
     ),
@@ -135,13 +139,13 @@ class CoreTheme {
       style: TextButton.styleFrom(
         onSurface: _themeColorsLight.primary,
         primary: _themeColorsLight.textColor,
-        minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
-        padding: const EdgeInsets.all(Dimens.SPACING_L),
+        minimumSize: const Size(Dimens.buttonHeight, Dimens.buttonHeight),
+        padding: const EdgeInsets.all(Dimens.spacingL),
         shadowColor: _themeColorsLight.primaryLight,
         textStyle: ThemeData.light().textTheme.buttonText?.copyWith(fontFamily: _fontFamily),
-        animationDuration: Durations.BUTTON_TAP,
+        animationDuration: Durations.buttonTap,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
+          borderRadius: BorderRadius.all(Radius.circular(Dimens.radiusM)),
         ),
       ),
     ),
@@ -149,13 +153,13 @@ class CoreTheme {
       style: ElevatedButton.styleFrom(
         onPrimary: Colors.white,
         primary: _themeColorsLight.primary,
-        minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
-        padding: const EdgeInsets.all(Dimens.SPACING_L),
+        minimumSize: const Size(Dimens.buttonHeight, Dimens.buttonHeight),
+        padding: const EdgeInsets.all(Dimens.spacingL),
         shadowColor: _themeColorsLight.primaryLight,
         textStyle: ThemeData.light().textTheme.buttonText?.copyWith(fontFamily: _fontFamily),
-        animationDuration: Durations.BUTTON_TAP,
+        animationDuration: Durations.buttonTap,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
+          borderRadius: BorderRadius.all(Radius.circular(Dimens.radiusM)),
         ),
       ),
     ),
@@ -163,14 +167,14 @@ class CoreTheme {
       style: OutlinedButton.styleFrom(
         onSurface: _themeColorsLight.primary,
         primary: _themeColorsLight.textColor,
-        minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
-        padding: const EdgeInsets.all(Dimens.SPACING_L),
+        minimumSize: const Size(Dimens.buttonHeight, Dimens.buttonHeight),
+        padding: const EdgeInsets.all(Dimens.spacingL),
         shadowColor: _themeColorsLight.primaryLight,
         textStyle: ThemeData.light().textTheme.buttonText?.copyWith(fontFamily: _fontFamily),
-        animationDuration: Durations.BUTTON_TAP,
+        animationDuration: Durations.buttonTap,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: _themeColorsLight.primary, style: BorderStyle.solid),
-          borderRadius: const BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
+          borderRadius: const BorderRadius.all(Radius.circular(Dimens.radiusM)),
         ),
       ),
     ),
@@ -180,7 +184,7 @@ class CoreTheme {
         deleteIconColor: _themeColorsLight.primary,
         labelStyle: ThemeData.light().textTheme.chips),
     iconTheme: ThemeData.light().iconTheme.copyWith(color: _themeColorsLight.textColor),
-    cupertinoOverrideTheme: cupertinoThemeLight,
+    cupertinoOverrideTheme: cupertinoThemeLight, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: _themeColorsLight.secondary),
   );
 
   static final ThemeData dark = ThemeData(
@@ -190,9 +194,6 @@ class CoreTheme {
     hoverColor: Colors.transparent,
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
-    accentColorBrightness: Brightness.dark,
-    buttonColor: _themeColorsDark.accent,
-    accentTextTheme: ThemeData.dark().textTheme,
     //region Input fields
     inputDecorationTheme: ThemeData.dark().inputDecorationTheme.copyWith(
           filled: true,
@@ -203,34 +204,32 @@ class CoreTheme {
           fillColor: Colors.transparent,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: _themeColorsDark.primary),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           disabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.transparent),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: _themeColorsDark.accent),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderSide: BorderSide(color: _themeColorsDark.secondary),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: CoreColors.red),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: CoreColors.red),
-            borderRadius: BorderRadius.circular(Dimens.RADIUS_M),
+            borderRadius: BorderRadius.circular(Dimens.radiusM),
           ),
         ),
     textSelectionTheme: ThemeData.dark().textSelectionTheme.copyWith(
-          cursorColor: _themeColorsDark.accent,
-          selectionColor: _themeColorsDark.accent.withOpacity(.4),
-          selectionHandleColor: _themeColorsDark.accent.withOpacity(.4),
+          cursorColor: _themeColorsDark.secondary,
+          selectionColor: _themeColorsDark.secondary.withOpacity(.4),
+          selectionHandleColor: _themeColorsDark.secondary.withOpacity(.4),
         ),
-    //endregion
-    accentColor: _themeColorsDark.accent,
-    hintColor: _themeColorsDark.accent,
-    focusColor: _themeColorsDark.accent,
+    hintColor: _themeColorsDark.secondary,
+    focusColor: _themeColorsDark.secondary,
     fontFamily: _fontFamily,
     //region App bar
     appBarTheme: ThemeData.dark().appBarTheme.copyWith(
@@ -265,7 +264,7 @@ class CoreTheme {
       unselectedLabelColor: _themeColorsDark.textColorLight,
       indicatorSize: TabBarIndicatorSize.tab,
       indicator: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_XS)),
+        borderRadius: BorderRadius.all(Radius.circular(Dimens.radiusXS)),
         color: Colors.white,
       ),
     ),
@@ -275,13 +274,13 @@ class CoreTheme {
       style: TextButton.styleFrom(
         onSurface: _themeColorsDark.primary,
         primary: _themeColorsDark.textColor,
-        minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
-        padding: const EdgeInsets.all(Dimens.SPACING_L),
+        minimumSize: const Size(Dimens.buttonHeight, Dimens.buttonHeight),
+        padding: const EdgeInsets.all(Dimens.spacingL),
         shadowColor: _themeColorsDark.primaryLight,
         textStyle: ThemeData.dark().textTheme.buttonText,
-        animationDuration: Durations.BUTTON_TAP,
+        animationDuration: Durations.buttonTap,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
+          borderRadius: BorderRadius.all(Radius.circular(Dimens.radiusM)),
         ),
       ),
     ),
@@ -289,13 +288,13 @@ class CoreTheme {
       style: ElevatedButton.styleFrom(
         onPrimary: Colors.white,
         primary: _themeColorsDark.primary,
-        minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
-        padding: const EdgeInsets.all(Dimens.SPACING_L),
+        minimumSize: const Size(Dimens.buttonHeight, Dimens.buttonHeight),
+        padding: const EdgeInsets.all(Dimens.spacingL),
         shadowColor: _themeColorsDark.primaryLight,
         textStyle: ThemeData.dark().textTheme.buttonText,
-        animationDuration: Durations.BUTTON_TAP,
+        animationDuration: Durations.buttonTap,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
+          borderRadius: BorderRadius.all(Radius.circular(Dimens.radiusM)),
         ),
       ),
     ),
@@ -303,14 +302,14 @@ class CoreTheme {
       style: OutlinedButton.styleFrom(
         onSurface: _themeColorsDark.primary,
         primary: _themeColorsDark.textColor,
-        minimumSize: const Size(Dimens.BUTTON_HEIGHT, Dimens.BUTTON_HEIGHT),
-        padding: const EdgeInsets.all(Dimens.SPACING_L),
+        minimumSize: const Size(Dimens.buttonHeight, Dimens.buttonHeight),
+        padding: const EdgeInsets.all(Dimens.spacingL),
         shadowColor: _themeColorsDark.primaryLight,
         textStyle: ThemeData.dark().textTheme.buttonText,
-        animationDuration: Durations.BUTTON_TAP,
+        animationDuration: Durations.buttonTap,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: _themeColorsDark.primary, style: BorderStyle.solid),
-          borderRadius: const BorderRadius.all(Radius.circular(Dimens.RADIUS_M)),
+          borderRadius: const BorderRadius.all(Radius.circular(Dimens.radiusM)),
         ),
       ),
     ),
@@ -320,6 +319,6 @@ class CoreTheme {
         deleteIconColor: _themeColorsDark.primary,
         labelStyle: ThemeData.dark().textTheme.chips),
     iconTheme: ThemeData.dark().iconTheme.copyWith(color: _themeColorsDark.textColor),
-    cupertinoOverrideTheme: cupertinoThemeDark,
+    cupertinoOverrideTheme: cupertinoThemeDark, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: _themeColorsDark.secondary),
   );
 }

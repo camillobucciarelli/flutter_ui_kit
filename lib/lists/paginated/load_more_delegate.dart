@@ -6,7 +6,6 @@ typedef ListViewItemBuilder<ItemType> = Widget Function(ItemType);
 typedef OnLoadMore<ItemType> = Future<bool> Function(ItemType);
 
 class AppLoadMoreDelegate extends LoadMoreDelegate {
-
   final MediaQueryData mediaQuery;
 
   AppLoadMoreDelegate(this.mediaQuery);
@@ -16,5 +15,4 @@ class AppLoadMoreDelegate extends LoadMoreDelegate {
 
   @override
   Widget buildChild(LoadMoreStatus status, {builder = DefaultLoadMoreTextBuilder.chinese}) => Container();
-
 }

@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+
+import '../../theme/core_theme.dart';
 
 class ReactiveAlphanumericField<T> extends StatefulWidget {
   final FormControl<T>? formControl;
@@ -57,21 +58,17 @@ class ReactiveAlphanumericField<T> extends StatefulWidget {
     this.enableTrailingActions = true,
     this.enableInteractiveSelection = true,
     this.keyboardType = TextInputType.text,
-  })  : assert((formControlName != null && formControl == null) ||
-            (formControlName == null && formControl != null)),
+  })  : assert((formControlName != null && formControl == null) || (formControlName == null && formControl != null)),
         assert(obscureText == true && maxLines == 1 || obscureText == false),
         assert(minLines <= maxLines),
-        assert(trailingAction != null && !enableTrailingActions ||
-            trailingAction == null),
+        assert(trailingAction != null && !enableTrailingActions || trailingAction == null),
         super(key: key);
 
   @override
-  _ReactiveAlphanumericFieldState<T> createState() =>
-      _ReactiveAlphanumericFieldState<T>();
+  _ReactiveAlphanumericFieldState<T> createState() => _ReactiveAlphanumericFieldState<T>();
 }
 
-class _ReactiveAlphanumericFieldState<T>
-    extends State<ReactiveAlphanumericField<T>> {
+class _ReactiveAlphanumericFieldState<T> extends State<ReactiveAlphanumericField<T>> {
   StreamSubscription? _focusListener;
   StreamSubscription? _valueListener;
   _SuffixIconTypes? _suffixIconType;
@@ -99,21 +96,15 @@ class _ReactiveAlphanumericFieldState<T>
     return control;
   }
 
-  bool get _showClearSuffix =>
-      _hasFocus &&
-      _formControl.value != null &&
-      widget.enableTrailingActions &&
-      !widget.obscureText;
+  bool get _showClearSuffix => _hasFocus && _formControl.value != null && widget.enableTrailingActions && !widget.obscureText;
 
   bool get _hideClearSuffix => !_hasFocus || _formControl.value == null;
 
-  bool get _showErrorSuffix =>
-      !_hasFocus && _formControl.invalid && _hasInteractedByUser;
+  bool get _showErrorSuffix => !_hasFocus && _formControl.invalid && _hasInteractedByUser;
 
   bool get _hideErrorSuffix => _formControl.valid;
 
-  bool get _showObscureTextSuffix =>
-      _hasFocus && widget.obscureText && widget.enableTrailingActions;
+  bool get _showObscureTextSuffix => _hasFocus && widget.obscureText && widget.enableTrailingActions;
 
   bool get _hideObscureTextSuffix => !_hasFocus;
 
@@ -127,12 +118,10 @@ class _ReactiveAlphanumericFieldState<T>
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (widget.prefixIcon != null) {
-      _prefixIcon = Icon(widget.prefixIcon,
-          color: ThemeColors.of(context).textColorLighter);
+      _prefixIcon = Icon(widget.prefixIcon, color: ThemeColors.of(context).textColorLighter);
     }
     _focusListener = _formControl.focusChanges.listen(_changesListener);
-    _valueListener =
-        _formControl.valueChanges.listen((_) => _changesListener(true));
+    _valueListener = _formControl.valueChanges.listen((_) => _changesListener(true));
   }
 
   @override
@@ -166,8 +155,7 @@ class _ReactiveAlphanumericFieldState<T>
         labelText: widget.labelText,
         prefixIcon: _prefixIcon,
         hintText: widget.hintText,
-        suffixIcon:
-            widget.trailingAction ?? _suffixIconType?.getSuffixIcon(this),
+        suffixIcon: widget.trailingAction ?? _suffixIconType?.getSuffixIcon(this),
       ),
     );
   }
@@ -196,9 +184,7 @@ class _ReactiveAlphanumericFieldState<T>
     }
     if (_hideClearSuffix && _suffixIconType == _SuffixIconTypes.clear ||
         _hideErrorSuffix && _suffixIconType == _SuffixIconTypes.error ||
-        _hideObscureTextSuffix &&
-            (_suffixIconType == _SuffixIconTypes.obscureText ||
-                _suffixIconType == _SuffixIconTypes.showText)) {
+        _hideObscureTextSuffix && (_suffixIconType == _SuffixIconTypes.obscureText || _suffixIconType == _SuffixIconTypes.showText)) {
       _hideSuffixIcon();
     }
   }
@@ -214,9 +200,7 @@ class _ReactiveAlphanumericFieldState<T>
   void _toggleObscureText() {
     setState(() {
       _obscureText = !_obscureText;
-      _suffixIconType = _obscureText
-          ? _SuffixIconTypes.showText
-          : _SuffixIconTypes.obscureText;
+      _suffixIconType = _obscureText ? _SuffixIconTypes.showText : _SuffixIconTypes.obscureText;
     });
   }
 }
@@ -227,25 +211,21 @@ extension on _SuffixIconTypes {
   Widget? getSuffixIcon(_ReactiveAlphanumericFieldState state) => {
         _SuffixIconTypes.clear: IconButton(
             padding: EdgeInsets.zero,
-            icon:
-                Icon(Icons.cancel, color: ThemeColors.of(state.context).accent),
+            icon: Icon(Icons.cancel, color: ThemeColors.of(state.context).secondary),
             onPressed: () {
               state._formControl.patchValue(null);
             }),
-        _SuffixIconTypes.error:
-            const Icon(Icons.error_rounded, color: CoreColors.red),
+        _SuffixIconTypes.error: const Icon(Icons.error_rounded, color: CoreColors.red),
         _SuffixIconTypes.obscureText: IconButton(
           padding: EdgeInsets.zero,
-          icon: Icon(Icons.visibility_rounded,
-              color: ThemeColors.of(state.context).accent),
+          icon: Icon(Icons.visibility_rounded, color: ThemeColors.of(state.context).secondary),
           onPressed: () {
             state._toggleObscureText();
           },
         ),
         _SuffixIconTypes.showText: IconButton(
           padding: EdgeInsets.zero,
-          icon: Icon(Icons.visibility_off_rounded,
-              color: ThemeColors.of(state.context).accent),
+          icon: Icon(Icons.visibility_off_rounded, color: ThemeColors.of(state.context).secondary),
           onPressed: () {
             state._toggleObscureText();
           },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_item.dart';
-import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_list.dart';
+import 'select_form_field_item.dart';
+import 'select_form_field_list.dart';
 
 import '../alphanumeric_form_field.dart';
 
@@ -98,7 +98,6 @@ class _MultiSelectFormFieldState<T> extends State<MultiSelectFormField<T>> {
   String? _validator(String? value) {
     return widget.validator?.call(_currentValues.map((v) => v.value).toList());
   }
-
 
   void _onChange(List<SelectFormFieldItem<T>> items) {
     setState(() {

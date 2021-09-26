@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import 'theme/core_theme.dart';
 
 class ExpansionCard extends StatelessWidget {
   final Widget title;
@@ -23,17 +23,16 @@ class ExpansionCard extends StatelessWidget {
     return IgnorePointer(
       ignoring: !enable,
       child: Container(
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.circular(Dimens.RADIUS_L), color: ThemeColors.of(context).primaryLight),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimens.radiusL), color: ThemeColors.of(context).primaryLight),
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
-            tilePadding: const EdgeInsets.symmetric(horizontal: Dimens.SPACING_L, vertical: Dimens.SPACING_S),
+            tilePadding: const EdgeInsets.symmetric(horizontal: Dimens.spacingL, vertical: Dimens.spacingS),
             title: title,
             leading: leading,
-            trailing: trailing ?? const SizedBox(width: Dimens.ICON_BUTTON_SIZE, height: Dimens.ICON_BUTTON_SIZE),
+            trailing: trailing ?? const SizedBox(width: Dimens.iconButtonSize, height: Dimens.iconButtonSize),
             initiallyExpanded: false,
-            childrenPadding: const EdgeInsets.only(right: Dimens.SPACING_S, left: Dimens.SPACING_S, bottom: Dimens.SPACING_S),
+            childrenPadding: const EdgeInsets.only(right: Dimens.spacingS, left: Dimens.spacingS, bottom: Dimens.spacingS),
             children: expandedContent,
           ),
         ),

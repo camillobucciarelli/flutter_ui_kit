@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/buttons/button.dart';
-import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
-import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_item.dart';
-import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_list_item.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+
+import '../../../buttons/button.dart';
+import '../../../flutter_core_ui_kit.dart';
+import '../../../theme/core_theme.dart';
+import 'select_form_field_item.dart';
+import 'select_form_field_list_item.dart';
 
 class SelectFormFieldList<T> extends StatefulWidget {
+  final String title;
+  final String addNewItemLabel;
   final List<SelectFormFieldItem<T>> items;
   final List<SelectFormFieldItem<T>>? initialValues;
   final bool hasMultipleSelection;
   final Future<SelectFormFieldItem<T>?> Function()? onAddNew;
 
   const SelectFormFieldList({
+    Key? key,
     required this.items,
+    this.title = '',
+    this.addNewItemLabel = '',
     this.hasMultipleSelection = false,
     this.initialValues,
     this.onAddNew,
-  });
+  }) : super(key: key);
 
   @override
   _SelectFormFieldListState<T> createState() => _SelectFormFieldListState<T>();
@@ -40,7 +46,7 @@ class _SelectFormFieldListState<T> extends State<SelectFormFieldList<T>> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       appBar: CustomizedAppBar(
-        title: CoreUIKit.selectListTitle,
+        title: widget.title,
         leading: CustomizedAppBar.leadingButton(context, onPressed: () => Navigator.of(context).pop()),
         actions: [
           Button.icon(
@@ -51,8 +57,8 @@ class _SelectFormFieldListState<T> extends State<SelectFormFieldList<T>> {
       ),
       body: ListView.builder(
         padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top + Dimens.APP_BAR_HEIGHT + Dimens.SPACING_L,
-          bottom: MediaQuery.of(context).padding.top + Dimens.SPACING_L,
+          top: MediaQuery.of(context).padding.top + Dimens.appBarHeight + Dimens.spacingL,
+          bottom: MediaQuery.of(context).padding.top + Dimens.spacingL,
         ),
         itemCount: widget.items.length + (widget.onAddNew == null ? 0 : 1),
         itemBuilder: (context, index) {
@@ -73,7 +79,7 @@ class _SelectFormFieldListState<T> extends State<SelectFormFieldList<T>> {
 
   Widget _addNewItem() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Dimens.SPACING_L),
+      padding: const EdgeInsets.symmetric(horizontal: Dimens.spacingL),
       child: ListItem(
         backgroundColor: ThemeColors.of(context).primaryLight,
         trailing: Button.icon(
@@ -88,7 +94,7 @@ class _SelectFormFieldListState<T> extends State<SelectFormFieldList<T>> {
               });
             }),
         title: Text(
-          CoreUIKit.addNewItemLabel,
+          widget.addNewItemLabel,
           style: Theme.of(context).textTheme.appBar?.apply(color: ThemeColors.of(context).textColor),
         ),
       ),

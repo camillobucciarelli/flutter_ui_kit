@@ -32,19 +32,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  pedantic: ^1.11.1
+  flutter_lints: ^1.0.4
 
 flutter:
-  fonts:
-    - family: ProximaNova
-      fonts:
-        - asset: assets/fonts/Proxima_Nova_Black.otf
-          weight: 900
-        - asset: assets/fonts/Proxima_Nova_Bold.otf
-          weight: 600
-        - asset: assets/fonts/Proxima_Nova_Regular.otf
-          weight: 400
-        - asset: assets/fonts/Proxima_Nova_Light.otf
-          weight: 200
-        - asset: assets/fonts/Proxima_Nova_Thin.otf
-          weight: 100

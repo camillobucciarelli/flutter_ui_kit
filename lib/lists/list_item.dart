@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/adaptive_container.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import '../adaptive_container.dart';
+import '../theme/core_theme.dart';
 
 class ListItem extends StatefulWidget {
   final Widget title;
@@ -16,6 +16,7 @@ class ListItem extends StatefulWidget {
   final bool isSelected;
 
   const ListItem({
+    Key? key,
     required this.title,
     this.leading,
     this.trailing,
@@ -23,11 +24,12 @@ class ListItem extends StatefulWidget {
     this.backgroundColor,
     this.backgroundSelectedColor,
     this.onTap,
-    this.padding = const EdgeInsets.symmetric(horizontal: Dimens.SPACING_L),
+    this.padding = const EdgeInsets.symmetric(horizontal: Dimens.spacingL),
     this.isShimmer = false,
     this.selectable = false,
     this.isSelected = false,
-  }): assert(isShimmer && !selectable && !isSelected || !isShimmer);
+  })  : assert(isShimmer && !selectable && !isSelected || !isShimmer),
+        super(key: key);
 
   @override
   _ListItemState createState() => _ListItemState();
@@ -54,17 +56,17 @@ class _ListItemState extends State<ListItem> {
         child: Transform.scale(
           scale: _factor,
           child: AnimatedContainer(
-            duration: Durations.ANIMATED_TAP,
+            duration: Durations.animatedTap,
             padding: widget.padding,
-            height: widget.height ?? Dimens.LIST_ITEM_HEIGHT,
+            height: widget.height ?? Dimens.listItemHeight,
             alignment: Alignment.centerLeft,
             decoration: _getDecoration(context),
             child: Row(
               children: [
-                if (widget.leading != null) ...[widget.leading!, const SizedBox(width: Dimens.SPACING_S)],
+                if (widget.leading != null) ...[widget.leading!, const SizedBox(width: Dimens.spacingS)],
                 Expanded(child: widget.title),
                 if (widget.trailing != null) ...[
-                  const SizedBox(width: Dimens.SPACING_L),
+                  const SizedBox(width: Dimens.spacingL),
                   widget.trailing!,
                 ],
               ],
@@ -93,7 +95,7 @@ class _ListItemState extends State<ListItem> {
 
   void _onTap() async {
     if (!widget.selectable) return;
-    await Future.delayed(Durations.BUTTON_TAP);
+    await Future.delayed(Durations.buttonTap);
     setState(_toggleFactor);
     widget.onTap?.call();
   }
@@ -115,13 +117,13 @@ class _ListItemState extends State<ListItem> {
   BoxDecoration _getDecoration(BuildContext context) {
     if (widget.isShimmer) {
       return BoxDecoration(
-        borderRadius: BorderRadius.circular(Dimens.RADIUS_L),
+        borderRadius: BorderRadius.circular(Dimens.radiusL),
         border: Border.all(color: ThemeColors.of(context).primaryLight),
       );
     }
 
     return BoxDecoration(
-      borderRadius: BorderRadius.circular(Dimens.RADIUS_L),
+      borderRadius: BorderRadius.circular(Dimens.radiusL),
       color: widget.isSelected
           ? widget.backgroundSelectedColor ?? ThemeColors.of(context).primary
           : widget.backgroundColor ?? ThemeColors.of(context).primaryLight,

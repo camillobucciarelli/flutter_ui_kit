@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+import '../theme/core_theme.dart';
 
 class Button extends StatefulWidget {
   final String? title;
@@ -51,7 +51,7 @@ class Button extends StatefulWidget {
     Color? iconColor,
     bool loading = false,
     bool enabled = true,
-    double size = Dimens.ICON_BUTTON_SIZE,
+    double size = Dimens.iconButtonSize,
   }) =>
       Button._(key, null, icon, _ButtonStyle.filled, onPressed, loading, buttonColor, iconColor, null, null, enabled, size);
 
@@ -85,7 +85,7 @@ class Button extends StatefulWidget {
 }
 
 class _ButtonState extends State<Button> {
-  final Duration _duration = Durations.BUTTON_TAP;
+  final Duration _duration = Durations.buttonTap;
   var _factor = 1.0;
   var _hover = false;
 
@@ -104,13 +104,13 @@ class _ButtonState extends State<Button> {
               duration: _duration,
               opacity: _enable ? 1 : .3,
               child: Container(
-                height: widget.size ?? Dimens.BUTTON_HEIGHT,
+                height: widget.size ?? Dimens.buttonHeight,
                 width: widget.size,
                 alignment: Alignment.center,
                 decoration: widget.style.decoration(context, widget.onPressed, widget.buttonColor, hover: _hover),
                 child: AnimatedSwitcher(
                   key: UniqueKey(),
-                  duration: Durations.ANIMATED_SWITCHER,
+                  duration: Durations.animatedSwitcher,
                   child: _child(context),
                 ),
               ),
@@ -136,15 +136,15 @@ class _ButtonState extends State<Button> {
       children: [
         if (widget.leading != null || widget.trailing != null)
           SizedBox(
-            width: Dimens.BUTTON_HEIGHT,
-            height: Dimens.BUTTON_HEIGHT,
+            width: Dimens.buttonHeight,
+            height: Dimens.buttonHeight,
             child: widget.leading,
           ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: Dimens.SPACING_XS,
-              horizontal: Dimens.SPACING_M,
+              vertical: Dimens.spacingXS,
+              horizontal: Dimens.spacingM,
             ),
             child: Text(
               widget.style.formatTitle(widget.title ?? ''),
@@ -156,8 +156,8 @@ class _ButtonState extends State<Button> {
         ),
         if (widget.leading != null || widget.trailing != null)
           SizedBox(
-            width: Dimens.BUTTON_HEIGHT,
-            height: Dimens.BUTTON_HEIGHT,
+            width: Dimens.buttonHeight,
+            height: Dimens.buttonHeight,
             child: widget.trailing,
           ),
       ],
@@ -229,8 +229,9 @@ extension on _ButtonStyle {
         borderRadius:
             (Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected}) as RoundedRectangleBorder).borderRadius,
         border: Border.all(
-            color: buttonColor ?? Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.color ??
-                ThemeColors.of(context).accent,
+            color: buttonColor ??
+                Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.color ??
+                ThemeColors.of(context).secondary,
             style: Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.style ?? BorderStyle.solid,
             width: Theme.of(context).outlinedButtonTheme.style?.shape?.resolve({MaterialState.selected})?.side.width ?? 2.0),
         boxShadow: [

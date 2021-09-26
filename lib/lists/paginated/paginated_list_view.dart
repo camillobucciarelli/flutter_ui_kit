@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/lists/paginated/load_more_delegate.dart';
+import 'load_more_delegate.dart';
 import 'package:loadmore/loadmore.dart';
 
 class PaginatedListView<ItemType> extends StatelessWidget {
@@ -14,6 +14,7 @@ class PaginatedListView<ItemType> extends StatelessWidget {
   final Widget? headerPadding;
 
   const PaginatedListView({
+    Key? key,
     required this.items,
     required this.loadMore,
     required this.totalCount,
@@ -23,7 +24,7 @@ class PaginatedListView<ItemType> extends StatelessWidget {
     this.headerPadding,
     this.padding,
     this.physics,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

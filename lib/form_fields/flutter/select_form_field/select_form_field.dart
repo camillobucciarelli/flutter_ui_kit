@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_item.dart';
-import 'package:flutter_core_ui_kit/form_fields/flutter/select_form_field/select_form_field_list.dart';
+import 'select_form_field_item.dart';
+import 'select_form_field_list.dart';
 
 import '../alphanumeric_form_field.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
+import '../flutter_core_ui_kit.dart';
 
 class ListWithBottom extends StatelessWidget {
   final List<Widget> children;
@@ -9,12 +9,13 @@ class ListWithBottom extends StatelessWidget {
   final EdgeInsets? padding;
 
   const ListWithBottom({
+    Key? key,
     required this.children,
     required this.bottom,
-    this.bottomSpacing = Dimens.SPACING_XXL,
+    this.bottomSpacing = Dimens.spacingXXL,
     this.physics = const BouncingScrollPhysics(),
     this.padding,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

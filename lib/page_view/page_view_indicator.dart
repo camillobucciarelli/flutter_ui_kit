@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/flutter_core_ui_kit.dart';
-import 'package:flutter_core_ui_kit/page_view/indicator_item.dart';
+import '../flutter_core_ui_kit.dart';
+import 'indicator_item.dart';
 
 class PageViewIndicator extends StatefulWidget {
   final double indicatorHeight;
@@ -11,13 +11,14 @@ class PageViewIndicator extends StatefulWidget {
   final bool single;
 
   const PageViewIndicator({
+    Key? key,
     required this.pageController,
     required this.pagesCount,
-    this.indicatorHeight = Dimens.SPACING_XS,
-    this.indicatorSpacing = Dimens.SPACING_XXS,
-    this.animationDuration = Durations.BUTTON_TAP,
+    this.indicatorHeight = Dimens.spacingXS,
+    this.indicatorSpacing = Dimens.spacingXXS,
+    this.animationDuration = Durations.buttonTap,
     this.single = false,
-  });
+  }) : super(key: key);
 
   @override
   _PageViewIndicatorState createState() => _PageViewIndicatorState();

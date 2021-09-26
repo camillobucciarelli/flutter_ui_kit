@@ -1,10 +1,11 @@
 import 'dart:typed_data';
 
-import 'package:flutter_core_ui_kit/buttons/button.dart';
 import 'package:crop_your_image/crop_your_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/customized_app_bar.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
+
+import '../buttons/button.dart';
+import '../customized_app_bar.dart';
+import '../theme/core_theme.dart';
 
 class CropImage extends StatelessWidget {
   final _controller = CropController();
@@ -14,11 +15,12 @@ class CropImage extends StatelessWidget {
   final void Function(Uint8List)? onCropped;
 
   CropImage({
+    Key? key,
     required this.imageData,
     this.circle = false,
     this.initialSize = .5,
     this.onCropped,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

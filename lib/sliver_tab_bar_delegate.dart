@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core_ui_kit/theme/core_theme.dart';
-
+import 'theme/core_theme.dart';
 
 class SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
   final Widget child;
@@ -8,10 +7,10 @@ class SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
   SliverTabBarDelegate(this.child);
 
   @override
-  double get minExtent => Dimens.PERSISTENT_HEADER_HEIGHT;
+  double get minExtent => Dimens.persistentHeaderHeight;
 
   @override
-  double get maxExtent => Dimens.PERSISTENT_HEADER_HEIGHT;
+  double get maxExtent => Dimens.persistentHeaderHeight;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
