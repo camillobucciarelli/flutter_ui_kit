@@ -56,14 +56,21 @@ class CoreTheme {
     brightness: Brightness.light,
     hoverColor: Colors.transparent,
     splashColor: Colors.transparent,
+    colorScheme: const ColorScheme.light(),
+    //todo update teaming
     highlightColor: Colors.transparent,
     //region Input fields
     inputDecorationTheme: ThemeData.light().inputDecorationTheme.copyWith(
           filled: true,
           alignLabelWithHint: true,
-          counterStyle: ThemeData.light().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
-          labelStyle: ThemeData.light().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
-          hintStyle: ThemeData.light().textTheme.textFieldHint?.apply(color: _themeColorsLight.textColorLighter),
+          counterStyle:
+              ThemeData.light().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
+          labelStyle:
+              ThemeData.light().textTheme.textFieldLabel?.apply(color: _themeColorsLight.textColor),
+          hintStyle: ThemeData.light()
+              .textTheme
+              .textFieldHint
+              ?.apply(color: _themeColorsLight.textColorLighter),
           errorStyle: ThemeData.light().textTheme.textFieldError?.apply(color: CoreColors.red),
           fillColor: Colors.transparent,
           enabledBorder: OutlineInputBorder(
@@ -184,7 +191,7 @@ class CoreTheme {
         deleteIconColor: _themeColorsLight.primary,
         labelStyle: ThemeData.light().textTheme.chips),
     iconTheme: ThemeData.light().iconTheme.copyWith(color: _themeColorsLight.textColor),
-    cupertinoOverrideTheme: cupertinoThemeLight, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: _themeColorsLight.secondary),
+    cupertinoOverrideTheme: cupertinoThemeLight,
   );
 
   static final ThemeData dark = ThemeData(
@@ -194,12 +201,18 @@ class CoreTheme {
     hoverColor: Colors.transparent,
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
+    colorScheme: const ColorScheme.dark(),
+    //todo update teaming
     //region Input fields
     inputDecorationTheme: ThemeData.dark().inputDecorationTheme.copyWith(
           filled: true,
           alignLabelWithHint: true,
-          labelStyle: ThemeData.dark().textTheme.textFieldLabel?.apply(color: _themeColorsDark.textColor),
-          hintStyle: ThemeData.dark().textTheme.textFieldHint?.apply(color: _themeColorsDark.textColorLighter),
+          labelStyle:
+              ThemeData.dark().textTheme.textFieldLabel?.apply(color: _themeColorsDark.textColor),
+          hintStyle: ThemeData.dark()
+              .textTheme
+              .textFieldHint
+              ?.apply(color: _themeColorsDark.textColorLighter),
           errorStyle: ThemeData.dark().textTheme.textFieldError?.apply(color: CoreColors.red),
           fillColor: Colors.transparent,
           enabledBorder: OutlineInputBorder(
@@ -319,6 +332,6 @@ class CoreTheme {
         deleteIconColor: _themeColorsDark.primary,
         labelStyle: ThemeData.dark().textTheme.chips),
     iconTheme: ThemeData.dark().iconTheme.copyWith(color: _themeColorsDark.textColor),
-    cupertinoOverrideTheme: cupertinoThemeDark, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: _themeColorsDark.secondary),
+    cupertinoOverrideTheme: cupertinoThemeDark,
   );
 }
